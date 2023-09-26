@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table with Bootstrap 5</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+pmDlk4li7c4o0z8Lr+J2fPLpP5K1N/51FzFv1nd8tr7q2W1" crossorigin="anonymous">
+
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.11.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container mt-4">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>hrllo</td>
+                <td>hi</td>
+                <td>up</td><td>hrllo</td>
+                <td>hi</td>
+                <td>up</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap 5 JS (jQuery required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+pmDlk4li7c4o0z8Lr+J2fPLpP5K1N/51FzFv1nd8tr7q2W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+pmDlk4li7c4o0z8Lr+J2fPLpP5K1N/51FzFv1nd8tr7q2W1" crossorigin="anonymous"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Your custom JavaScript for DataTable initialization -->
+    <script src="custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+    $('#example').DataTable({
+        paging: true,           // Enable pagination
+        searching: true,        // Enable searching
+        ordering: true,         // Enable sorting
+        select: true,           // Enable row selection
+        info: true,             // Display info (e.g., "Showing 1 to 10 of 50 entries")
+        lengthChange: true,     // Enable changing the number of entries per page
+        pageLength: 10,         // Default number of entries per page
+        lengthMenu: [10, 25, 50], // Options for entries per page
+    });
+});
+
+    </script>
+</body>
+</html>
