@@ -190,7 +190,7 @@ if (isset($_SESSION['user_id'])) {
     mysqli_stmt_bind_param($stmt, "sssssssssssssssssssssssssssssssssssss", $research_project_title, $research_agenda, $partnership, $sdg1, $sdg2, $sdg3, $sdg4, $sdg5, $sdg6, $sdg7, $sdg8, $sdg9, $sdg10, $sdg11, $sdg12, $sdg13, $sdg14, $sdg15, $sdg16, $sdg17, $revision, $startdate, $enddate, $executive_brief, $rationale, $objective, $publication, $patent, $product, $peopleservice, $partnership2, $policy, $socialimpact, $economicimpact, $rrl, $methodology, $id);
     mysqli_stmt_execute($stmt);
 
-    $i = 1;
+    $i = 0;
     $total_roles;
     foreach($_POST['roleName'] as $value) {
       $sql = "INSERT INTO `research_representatives`(`id`, `research_topic_id`, `role`) VALUES ('$id2[$i]','$id','$value')";
@@ -200,7 +200,7 @@ if (isset($_SESSION['user_id'])) {
     $same = $_POST['roles_position'][0];
     $k = 0;
     
-    $i = 1;
+    $i = 0;
     foreach($_POST['roles_position'] as $value) {
       $name = $_POST['roles_name'][$k];
       $designation = $_POST['roles_description'][$k];
@@ -220,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
     }
 
     $same = $_POST['responsibilities_position'][0];
-    $i = 1;
+    $i = 0;
     $k = 0;
 
     foreach($_POST['responsibilities_position'] as $value) {
