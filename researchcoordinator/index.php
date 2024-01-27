@@ -144,7 +144,7 @@ if (isset($_SESSION['user_id'])) {
                     <ul class="timeline">
                       <?php
                       $userID = $_SESSION['user_id'];
-                      $sql = "SELECT `fu`.`title`, `fu`.`first_name`, `fu`.`middle_name`, `fu`.`last_name`, `fu`.`image_path`, `n`.`category`, `n`.`description`, `n`.`date_added`, `un`.`id` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ?";
+                      $sql = "SELECT `fu`.`title`, `fu`.`first_name`, `fu`.`middle_name`, `fu`.`last_name`, `fu`.`image_path`, `n`.`category`, `n`.`description`, `n`.`date_added`, `un`.`id` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ? ORDER BY `n`.`date_added` DESC";
                       $stmt = mysqli_stmt_init($conn);
                       if (!mysqli_stmt_prepare($stmt, $sql)) {
                         // header("location: ./index.php?error");
@@ -728,51 +728,51 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation'";
                             }
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
                           }
                         } else {
-                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
-                                                      echo $row['total'];
+                                                      echo '₱' . number_format($row['total']);
                                                     } else {
-                                                      echo "0";
+                                                      echo "₱0";
                                                     } ?></h2>
                         <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
@@ -781,50 +781,6 @@ if (isset($_SESSION['user_id'])) {
                       </div>
                     </div>
                     <div id="NewCustomers4"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
-                    <!-- <div class="dropdown">
-                                            <div class="btn-link" data-bs-toggle="modal" data-bs-target="#exampleModalCenter4">
-                                                <svg width="15" height="15" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="12.4999" cy="3.5" r="2.5" fill="#A5A5A5"></circle>
-                                                    <circle cx="12.4999" cy="11.5" r="2.5" fill="#A5A5A5"></circle>
-                                                    <circle cx="12.4999" cy="19.5" r="2.5" fill="#A5A5A5"></circle>
-                                                </svg>
-                                            </div>
-                                            <div class="modal fade" id="exampleModalCenter4">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" style="font-size: 20px">Gross Expenditure on R&D</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="col-lg-12 mb-3">
-                                                               <label class="form-label">Year by
-                                                                </label>
-                                                                <select id="inputState" class="form-control" name="conference">
-                                                                    <option selected="">Choose Year</option>
-                                                                    <option>2023</option>
-                                                                  </select>
-                                                              </div>
-                                                              <div class="col-lg-12 mb-3">
-                                                               <label class="form-label">Filter by
-                                                                </label>
-                                                                <select id="inputState" class="form-control" name="conference">
-                                                                    <option selected="">Choose Filter</option>
-                                                                    <option>Quarterly</option>
-                                                                    <option>Annually</option>
-                                                                  </select>
-                                                              </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                   </div>
                 </div>
               </div>
@@ -834,153 +790,63 @@ if (isset($_SESSION['user_id'])) {
                     <div>
                       <div class="">
                         <?php
-                        $college = $_SESSION['college'];
                         if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
                         ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Inventions</span>
-                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                    } ?></span>
-                      </div>
-                    </div>
-                    <div id="NewCustomers7"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-3">
-                <div class="card">
-                  <div class="card-body d-flex px-4 justify-content-between">
-                    <div>
-                      <div class="">
-                        <?php
-                        $college = $_SESSION['college'];
-                        if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
-                          if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          }
-                        } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
-                          if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          }
-                        } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
-                          $result = $conn->query($sql);
-                          $row2 = $result->fetch_assoc();
-                        }
-                        ?>
-                        <h2 class="fs-32 font-w700"><?= $row2['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Ongoing Research Projects</span>
+                        <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
+                                                      echo '₱' . number_format($row['total']);
+                                                    } else {
+                                                      echo "₱0";
+                                                    } ?></h2>
+                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers5"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
                   </div>
                 </div>
               </div>
@@ -990,70 +856,100 @@ if (isset($_SESSION['user_id'])) {
                     <div>
                       <div class="">
                         <?php
-                        $college = $_SESSION['college'];
                         if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             }
-                            //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `college_id` = $college";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
                         ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Completed Research Projects</span>
+                        <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
+                                                      echo '₱' . number_format($row['total']);
+                                                    } else {
+                                                      echo "₱0";
+                                                    } ?></h2>
+                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers2"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
                   </div>
                 </div>
               </div>
+              <div class="col-xl-3 col-sm-3">
+                <div class="card">
+                  <div class="card-body d-flex px-4 justify-content-between">
+                    <div>
+                      <div class="">
 
+                        <h2 class="fs-32 font-w700">000</h2>
+                        <span class="fs-18 font-w500 d-block">No. of Paper Presented</span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
+                      </div>
+                    </div>
+                    <div id="NewCustomers7"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-3">
+                <div class="card">
+                  <div class="card-body d-flex px-4 justify-content-between">
+                    <div>
+                      <div class="">
+
+                        <h2 class="fs-32 font-w700">000</h2>
+                        <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
+                      </div>
+                    </div>
+                    <div id="NewCustomers8"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-xl-12">
               <div class="card">
@@ -1546,7 +1442,18 @@ if (isset($_SESSION['user_id'])) {
                       <h4 class="fs-20 font-w700 mb-2">R&D Expenditures (<?= $_GET['annual'] ?>)</h4>
                     </div>
                     <div class="card-body">
-                      <div id="multi-line-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                      <div id="multi-line-chart" style="height: 100%;" class="ct-chart ct-golden-section chartlist-chart"></div>
+                    </div>
+                    <div class="card-footer text-center">
+                      <svg class="me-3" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="20" rx="6" fill="#DB7093"></rect>
+                      </svg>
+                      Externally Funded
+
+                      <svg class="me-3" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 10px;">
+                        <rect width="20" height="20" rx="6" fill="rgba(231,159,49, 1)"></rect>
+                      </svg>
+                      Institutionally Funded
                     </div>
                   </div>
                 </div>
@@ -2002,7 +1909,7 @@ if (isset($_SESSION['user_id'])) {
     //generate gradient
     const barChart_2gradientStroke = barChart_2.createLinearGradient(0, 0, 0, 250);
     barChart_2gradientStroke.addColorStop(0, "rgba(248,186,186, 1)");
-    barChart_2gradientStroke.addColorStop(1, "rgba(248,186,186, 0.3)");
+    barChart_2gradientStroke.addColorStop(1, "rgba(248,186,186, 1)");
 
     barChart_2.height = 100;
 

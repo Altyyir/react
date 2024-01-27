@@ -55,7 +55,7 @@
     header("location: ./proposal.php");
     exit();
   } elseif($row['category'] == "certificates") {
-    header("location: ./createfolder.php");
+    header("location: ./collegesfolder.php");
     exit();
   }
 ?>

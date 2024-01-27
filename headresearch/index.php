@@ -117,77 +117,79 @@ if (isset($_SESSION['user_id'])) {
                   <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
                 </div>
               </li>
-              <!-- <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                                    <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M23.3333 19.8333H23.1187C23.2568 19.4597 23.3295 19.065 23.3333 18.6666V12.8333C23.3294 10.7663 22.6402 8.75902 21.3735 7.12565C20.1068 5.49228 18.3343 4.32508 16.3333 3.80679V3.49996C16.3333 2.88112 16.0875 2.28763 15.6499 1.85004C15.2123 1.41246 14.6188 1.16663 14 1.16663C13.3812 1.16663 12.7877 1.41246 12.3501 1.85004C11.9125 2.28763 11.6667 2.88112 11.6667 3.49996V3.80679C9.66574 4.32508 7.89317 5.49228 6.6265 7.12565C5.35983 8.75902 4.67058 10.7663 4.66667 12.8333V18.6666C4.67053 19.065 4.74316 19.4597 4.88133 19.8333H4.66667C4.35725 19.8333 4.0605 19.9562 3.84171 20.175C3.62292 20.3938 3.5 20.6905 3.5 21C3.5 21.3094 3.62292 21.6061 3.84171 21.8249C4.0605 22.0437 4.35725 22.1666 4.66667 22.1666H23.3333C23.6428 22.1666 23.9395 22.0437 24.1583 21.8249C24.3771 21.6061 24.5 21.3094 24.5 21C24.5 20.6905 24.3771 20.3938 24.1583 20.175C23.9395 19.9562 23.6428 19.8333 23.3333 19.8333Z" fill="#717579"></path>
-                                        <path d="M9.9819 24.5C10.3863 25.2088 10.971 25.7981 11.6766 26.2079C12.3823 26.6178 13.1838 26.8337 13.9999 26.8337C14.816 26.8337 15.6175 26.6178 16.3232 26.2079C17.0288 25.7981 17.6135 25.2088 18.0179 24.5H9.9819Z" fill="#717579"></path>
-                                    </svg>
-                                    <span class="badge light text-white bg-warning rounded-circle">1</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
-                                        <ul class="timeline">
-                                            <li>
-                                                <div class="timeline-panel">
-                                                    <div class="media me-2">
-                                                        <?php
-                                                        $id = $_SESSION['user_id'];
-                                                        $sql = "SELECT * FROM `faculty_user` WHERE `id` = $id";
-                                                        $result = $conn->query($sql);
-                                                        $row = $result->fetch_assoc();
-                                                        ?>
-                                                        <img src="<?php echo $row['image_path'] != "" ? $row['image_path'] : 'profile_upload/bsu.png'; ?>" width="45" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">CICS</h6>
-                                                        <label style="font-size: 14px; font-style: italic;">"ReAcT(Research Activity Tracker): An Innovative Tool for Tracking and Monitoring BatStateU Faculty Research Performance"</label>
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">Asst. Prof. Noelyn De Jesus added new proposal</h6>
-                                                        <small class="d-block">29 July 2023 - 02:26 PM</small>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-panel">
-                                                    <div class="media me-2">
-                                                        <?php
-                                                        $id = $_SESSION['user_id'];
-                                                        $sql = "SELECT * FROM `faculty_user` WHERE `id` = $id";
-                                                        $result = $conn->query($sql);
-                                                        $row = $result->fetch_assoc();
-                                                        ?>
-                                                        <img src="<?php echo $row['image_path'] != "" ? $row['image_path'] : 'profile_upload/bsu.png'; ?>" width="45" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">CICS</h6>
-                                                        <label style="font-size: 14px; font-style: italic;">"ReAcT(Research Activity Tracker): An Innovative Tool for Tracking and Monitoring BatStateU Faculty Research Performance"</label>
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">Asst. Prof. Noelyn De Jesus added new proposal</h6>
-                                                        <small class="d-block">29 July 2023 - 02:26 PM</small>
-                                                    </div>
-                                                </div>
-                                                <div class="timeline-panel">
-                                                    <div class="media me-2">
-                                                        <?php
-                                                        $id = $_SESSION['user_id'];
-                                                        $sql = "SELECT * FROM `faculty_user` WHERE `id` = $id";
-                                                        $result = $conn->query($sql);
-                                                        $row = $result->fetch_assoc();
-                                                        ?>
-                                                        <img src="<?php echo $row['image_path'] != "" ? $row['image_path'] : 'profile_upload/bsu.png'; ?>" width="45" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">CICS</h6>
-                                                        <label style="font-size: 14px; font-style: italic;">"ReAcT(Research Activity Tracker): An Innovative Tool for Tracking and Monitoring BatStateU Faculty Research Performance"</label>
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">Asst. Prof. Noelyn De Jesus added new proposal</h6>
-                                                        <small class="d-block">29 July 2023 - 02:26 PM</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
-                                </div>
-                            </li>    -->
+              <li class="nav-item dropdown notification_dropdown">
+                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                  <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3333 19.8333H23.1187C23.2568 19.4597 23.3295 19.065 23.3333 18.6666V12.8333C23.3294 10.7663 22.6402 8.75902 21.3735 7.12565C20.1068 5.49228 18.3343 4.32508 16.3333 3.80679V3.49996C16.3333 2.88112 16.0875 2.28763 15.6499 1.85004C15.2123 1.41246 14.6188 1.16663 14 1.16663C13.3812 1.16663 12.7877 1.41246 12.3501 1.85004C11.9125 2.28763 11.6667 2.88112 11.6667 3.49996V3.80679C9.66574 4.32508 7.89317 5.49228 6.6265 7.12565C5.35983 8.75902 4.67058 10.7663 4.66667 12.8333V18.6666C4.67053 19.065 4.74316 19.4597 4.88133 19.8333H4.66667C4.35725 19.8333 4.0605 19.9562 3.84171 20.175C3.62292 20.3938 3.5 20.6905 3.5 21C3.5 21.3094 3.62292 21.6061 3.84171 21.8249C4.0605 22.0437 4.35725 22.1666 4.66667 22.1666H23.3333C23.6428 22.1666 23.9395 22.0437 24.1583 21.8249C24.3771 21.6061 24.5 21.3094 24.5 21C24.5 20.6905 24.3771 20.3938 24.1583 20.175C23.9395 19.9562 23.6428 19.8333 23.3333 19.8333Z" fill="#717579"></path>
+                    <path d="M9.9819 24.5C10.3863 25.2088 10.971 25.7981 11.6766 26.2079C12.3823 26.6178 13.1838 26.8337 13.9999 26.8337C14.816 26.8337 15.6175 26.6178 16.3232 26.2079C17.0288 25.7981 17.6135 25.2088 18.0179 24.5H9.9819Z" fill="#717579"></path>
+                  </svg>
+                  <?php
+                  $userID = $_SESSION['user_id'];
+                  $sql = "SELECT COUNT(*) AS `total` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ?";
+                  $stmt = mysqli_stmt_init($conn);
+                  if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    // header("location: ./index.php?error");
+                    exit();
+                  }
+                  mysqli_stmt_bind_param($stmt, "s", $userID);
+                  mysqli_stmt_execute($stmt);
+                  $result = mysqli_stmt_get_result($stmt);
+                  if ($row = mysqli_fetch_assoc($result)) {
+                    $total = $row['total'];
+                  }
+                  ?>
+                  <span class="badge light text-white bg-warning rounded-circle"><?= $total ?></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
+                    <ul class="timeline">
+                      <?php
+                      $userID = $_SESSION['user_id'];
+                      $sql = "SELECT `fu`.`title`, `fu`.`first_name`, `fu`.`middle_name`, `fu`.`last_name`, `fu`.`image_path`, `n`.`category`, `n`.`description`, `n`.`date_added`, `un`.`id` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ? ORDER BY `n`.`date_added` DESC";
+                      $stmt = mysqli_stmt_init($conn);
+                      if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        // header("location: ./index.php?error");
+                        exit();
+                      }
+                      mysqli_stmt_bind_param($stmt, "s", $userID);
+                      mysqli_stmt_execute($stmt);
+                      $result = mysqli_stmt_get_result($stmt);
+                      if ($result->num_rows > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+                          <li>
+                            <div class="timeline-panel">
+                              <div class="media me-2">
+                                <img src="../profile_upload/<?php echo $row['image_path'] != "" ? $row['image_path'] : '../profile_upload/bsu.png'; ?>" width="45" alt="">
+                              </div>
+                              <div class="media-body">
+                                <a href="./update.notification.php?id=<?= $row['id'] ?>" style="font-size: 14px; font-style: italic;"><?= $row['title'] . ' ' . $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'] . ' ' . $row['description'] ?></a>
+                                <h6 class="mb-1" style="font-size:14px; font-weight:600"><?= $row['title'] . ' ' . $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'] ?></h6>
+                                <?php
+                                $dateString = $row['date_added'];
+                                $dateTime = new DateTime($dateString);
+                                $formattedDate = $dateTime->format('d F Y - h:i A');
+                                ?>
+                                <small class="d-block"><?= $formattedDate ?></small>
+                              </div>
+                            </div>
+                          </li>
+                        <?php
+                        }
+                      } else {
+                        ?>
+                        <li>
+                          <div class="timeline-panel">
+                            No Notification
+                          </div>
+                        </li>
+                      <?php
+                      }
+                      ?>
+                    </ul>
+                  </div>
+                </div>
+              </li>
 
               <li class="nav-item dropdown  header-profile">
                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
@@ -497,8 +499,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Research Projects</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers3"></div>
@@ -562,8 +564,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Faculty Researchers</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers6"></div>
@@ -627,8 +629,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Conferences Attend</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers1"></div>
@@ -692,8 +694,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Publications</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers"></div>
@@ -755,54 +757,17 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
-                                                      echo $row['total'];
+                                                      echo '₱' . number_format($row['total']);
                                                     } else {
-                                                      echo "0";
+                                                      echo "₱0";
                                                     } ?></h2>
                         <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers4"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
-                    <div class="dropdown">
-                      <div class="modal fade" id="exampleModalCenter4">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" style="font-size: 20px">Gross Expenditure on R&D</h5>
-                            </div>
-                            <div class="modal-body">
-                              <div class="col-lg-12 mb-3">
-                                <label class="form-label">Year by
-                                </label>
-                                <select id="inputState" class="form-control" name="conference">
-                                  <option selected="">Choose Year</option>
-                                  <option>2023</option>
-                                </select>
-                              </div>
-                              <div class="col-lg-12 mb-3">
-                                <label class="form-label">Filter by
-                                </label>
-                                <select id="inputState" class="form-control" name="conference">
-                                  <option selected="">Choose Filter</option>
-                                  <option>Quarterly</option>
-                                  <option>Annually</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Submit</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -816,52 +781,139 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
                         ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Inventions</span>
+                        <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
+                                                      echo '₱' . number_format($row['total']);
+                                                    } else {
+                                                      echo "₱0";
+                                                    } ?></h2>
+                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
+                      </div>
+                    </div>
+                    <div id="NewCustomers5"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-3">
+                <div class="card">
+                  <div class="card-body d-flex px-4 justify-content-between">
+                    <div>
+                      <div class="">
+                        <?php
+                        if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
+                          if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
+                            $yearFilter = $_GET['annual'];
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            } else {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            }
+                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
+                            $yearFilter = $_GET['annual'];
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            } else {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            }
+                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
+                            $yearFilter = $_GET['annual'];
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            } else {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            }
+                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
+                            $yearFilter = $_GET['annual'];
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            } else {
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            }
+                          } else {
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                          }
+                        } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
+                          if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                            $yearFilter = $_GET['annual'];
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                          } else {
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                          }
+                        } else {
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                        }
+                        $result = $conn->query($sql);
+                        $row = $result->fetch_assoc();
+                        ?>
+                        <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
+                                                      echo '₱' . number_format($row['total']);
+                                                    } else {
+                                                      echo "₱0";
+                                                    } ?></h2>
+                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
+                      </div>
+                    </div>
+                    <div id="NewCustomers2"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-3">
+                <div class="card">
+                  <div class="card-body d-flex px-4 justify-content-between">
+                    <div>
+                      <div class="">
+
+                        <h2 class="fs-32 font-w700">000</h2>
+                        <span class="fs-18 font-w500 d-block">No. of Paper Presented</span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers7"></div>
@@ -876,153 +928,21 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card-body d-flex px-4 justify-content-between">
                     <div>
                       <div class="">
-                        <?php
-                        if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
-                          if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 1 and 3";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 4 and 6";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 7 and 9";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 10 and 12";
-                              $result = $conn->query($sql);
-                              $row2 = $result->fetch_assoc();
-                            }
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing'";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          }
-                        } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
-                          if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND YEAR(dateAdded) = '$yearFilter'";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing'";
-                            $result = $conn->query($sql);
-                            $row2 = $result->fetch_assoc();
-                          }
-                        } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing'";
-                          $result = $conn->query($sql);
-                          $row2 = $result->fetch_assoc();
-                        }
-                        ?>
-                        <h2 class="fs-32 font-w700"><?= $row2['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Ongoing Research Projects</span>
-                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
-                      </div>
-                    </div>
-                    <div id="NewCustomers5"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-3">
-                <div class="card">
-                  <div class="card-body d-flex px-4 justify-content-between">
-                    <div>
-                      <div class="">
-                        <?php
-                        if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
-                          if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 1 and 3";
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 4 and 6";
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 7 and 9";
-                            }
-                          } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
-                            $yearFilter = $_GET['annual'];
-                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
-                            } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 10 and 12";
-                            }
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed'";
-                          }
-                        } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
-                          if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                            $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND YEAR(dateAdded) = '$yearFilter'";
-                          } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed'";
-                          }
-                        } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed'";
-                        }
-                        $result = $conn->query($sql);
-                        $row = $result->fetch_assoc();
-                        ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Completed Research Projects</span>
-                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
-                      </div>
-                    </div>
-                    <div id="NewCustomers2"></div>
-                    <!-- <div class="bilog">
-                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
-                                        </div> -->
-                  </div>
-                </div>
-              </div>
 
+                        <h2 class="fs-32 font-w700">000</h2>
+                        <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
+                      </div>
+                    </div>
+                    <div id="NewCustomers8"></div>
+                    <!-- <div class="bilog">
+                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
+                                        </div> -->
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-xl-12">
               <div class="card">
@@ -1030,23 +950,9 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col">
                       <h4 class="fs-20 font-w700 mb-2">Research Statistics (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                  echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                } ?>)</h4>
+                                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                  } ?>)</h4>
                     </div>
-                    <!-- <div class="col">
-                                            <div class= "float-end d-flex align-items-center project-tab mb-2"> 
-                                                <div class="card-tabs mt-3 mt-sm-0 mb-3 ">
-                                                    <ul class="nav nav-tabs" role="tablist">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" data-bs-toggle="tab" href="#monthly" role="tab">Quarterly</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" data-bs-toggle="tab" href="#Weekly" role="tab">Annually</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div> -->
                   </div>
                   <div class="row">
                     <div class="col">
@@ -1404,7 +1310,6 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card-body">
                     <canvas id="lineChart_3"></canvas> <!-- // style="max-height:360px" -->
                   </div>
-
                   <div class="card-footer text-center">
                     <svg class="me-3" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="20" height="20" rx="6" fill="#DB7093"></rect>
@@ -1423,8 +1328,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Research Projects (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                              } ?>)</h4>
+                                                                                                  echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                } ?>)</h4>
                       <!-- <h1 style="font-size:12px">By number of Research R&D per Colleges</h1> -->
                     </div>
                     <div class="card-body">
@@ -1442,8 +1347,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Faculty Researcher (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                  echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                } ?>)</h4>
+                                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                  } ?>)</h4>
                       <div class="row"></div>
 
                     </div>
@@ -1462,8 +1367,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Conferences Attended (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                  } ?>)</h4>
+                                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                    } ?>)</h4>
                     </div>
 
                     <div class="card-body">
@@ -1482,8 +1387,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Publication (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                          echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                        } ?>)</h4>
+                                                                                            echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                          } ?>)</h4>
                       <div class="row">
                         <!-- <h1 style="font-size:12px">By number of Publication per Colleges</h1> -->
                       </div>
@@ -1504,11 +1409,22 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">R&D Expenditures (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                              } ?>)</h4>
+                                                                                                  echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                } ?>)</h4>
                     </div>
                     <div class="card-body">
                       <div id="rnd-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                    </div>
+                    <div class="card-footer text-center">
+                      <svg class="me-3" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="20" rx="6" fill="#DB7093"></rect>
+                      </svg>
+                      Externally Funded
+
+                      <svg class="me-3" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 10px;">
+                        <rect width="20" height="20" rx="6" fill="rgba(231,159,49, 1)"></rect>
+                      </svg>
+                      Institutionally Funded
                     </div>
                   </div>
                 </div>
@@ -1516,8 +1432,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Inventions (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                          echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                        } ?>)</h4>
+                                                                                            echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                          } ?>)</h4>
                     </div>
                     <div class="card-body">
                       <canvas id="barChart_1"></canvas>
@@ -1534,8 +1450,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Ongoing Research Projects (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                        echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                      } ?>)</h4>
+                                                                                                          echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                        } ?>)</h4>
                       <!-- h1 style="font-size:12px">By number of Ongoing Research Projects per Colleges</h1> -->
                     </div>
                     <div class="card-body">
@@ -1558,8 +1474,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-0">Completed Research Projects (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                          echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                        } ?>)</h4>
+                                                                                                            echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                          } ?>)</h4>
                       <!-- <h1 style="font-size:12px">By number of Completed Research Projects per Colleges</h1> -->
                     </div>
                     <div class="card-body pb-0">
@@ -1573,6 +1489,76 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                   </div>
                 </div>
+                <!-- <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Research Projects (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Faculty Researcher (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Conferences Attended (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Publication (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Inventions (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Ongoing Research Projects (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="fs-20 font-w700 mb-0">Completed Research Projects (<?= $_GET['annual'] ?>)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="extreme-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    </div>
+                                </div>
+                            </div> -->
               </div>
 
             </div>
@@ -1973,7 +1959,7 @@ if (isset($_SESSION['user_id'])) {
     //generate gradient
     const barChart_2gradientStroke = barChart_2.createLinearGradient(0, 0, 0, 250);
     barChart_2gradientStroke.addColorStop(0, "rgba(248,186,186, 1)");
-    barChart_2gradientStroke.addColorStop(1, "rgba(248,186,186, 0.3)");
+    barChart_2gradientStroke.addColorStop(1, "rgba(248,186,186, 1)");
 
     barChart_2.height = 100;
 
