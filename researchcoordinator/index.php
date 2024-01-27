@@ -116,42 +116,79 @@ if (isset($_SESSION['user_id'])) {
                   <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
                 </div>
               </li>
-              <!-- <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                                    <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M23.3333 19.8333H23.1187C23.2568 19.4597 23.3295 19.065 23.3333 18.6666V12.8333C23.3294 10.7663 22.6402 8.75902 21.3735 7.12565C20.1068 5.49228 18.3343 4.32508 16.3333 3.80679V3.49996C16.3333 2.88112 16.0875 2.28763 15.6499 1.85004C15.2123 1.41246 14.6188 1.16663 14 1.16663C13.3812 1.16663 12.7877 1.41246 12.3501 1.85004C11.9125 2.28763 11.6667 2.88112 11.6667 3.49996V3.80679C9.66574 4.32508 7.89317 5.49228 6.6265 7.12565C5.35983 8.75902 4.67058 10.7663 4.66667 12.8333V18.6666C4.67053 19.065 4.74316 19.4597 4.88133 19.8333H4.66667C4.35725 19.8333 4.0605 19.9562 3.84171 20.175C3.62292 20.3938 3.5 20.6905 3.5 21C3.5 21.3094 3.62292 21.6061 3.84171 21.8249C4.0605 22.0437 4.35725 22.1666 4.66667 22.1666H23.3333C23.6428 22.1666 23.9395 22.0437 24.1583 21.8249C24.3771 21.6061 24.5 21.3094 24.5 21C24.5 20.6905 24.3771 20.3938 24.1583 20.175C23.9395 19.9562 23.6428 19.8333 23.3333 19.8333Z" fill="#717579"></path>
-                                        <path d="M9.9819 24.5C10.3863 25.2088 10.971 25.7981 11.6766 26.2079C12.3823 26.6178 13.1838 26.8337 13.9999 26.8337C14.816 26.8337 15.6175 26.6178 16.3232 26.2079C17.0288 25.7981 17.6135 25.2088 18.0179 24.5H9.9819Z" fill="#717579"></path>
-                                    </svg>
-                                    <span class="badge light text-white bg-warning rounded-circle">1</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
-                                        <ul class="timeline">
-                                            <li>
-                                                <div class="timeline-panel">
-                                                    <div class="media me-2">
-                                                        <?php
-                                                        $id = $_SESSION['user_id'];
-                                                        $sql = "SELECT * FROM `faculty_user` WHERE `id` = $id";
-                                                        $result = $conn->query($sql);
-                                                        $row = $result->fetch_assoc();
-                                                        ?>
-                                                        <img src="<?php echo $row['image_path'] != "" ? $row['image_path'] : 'profile_upload/bsu.png'; ?>" width="45" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <label style="font-size: 14px; font-style: italic;">"ReAcT(Research Activity Tracker): An Innovative Tool for Tracking and Monitoring BatStateU Faculty Research Performance"</label>  
-                                                        <h6 class="mb-1" style="font-size:14px; font-weight:600">Asst. Prof. Noelyn De Jesus added new proposal</h6>
-                                                        <small class="d-block">29 July 2023 - 02:26 PM</small>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
-                                </div>
-                            </li>    -->
+              <li class="nav-item dropdown notification_dropdown">
+                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                  <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3333 19.8333H23.1187C23.2568 19.4597 23.3295 19.065 23.3333 18.6666V12.8333C23.3294 10.7663 22.6402 8.75902 21.3735 7.12565C20.1068 5.49228 18.3343 4.32508 16.3333 3.80679V3.49996C16.3333 2.88112 16.0875 2.28763 15.6499 1.85004C15.2123 1.41246 14.6188 1.16663 14 1.16663C13.3812 1.16663 12.7877 1.41246 12.3501 1.85004C11.9125 2.28763 11.6667 2.88112 11.6667 3.49996V3.80679C9.66574 4.32508 7.89317 5.49228 6.6265 7.12565C5.35983 8.75902 4.67058 10.7663 4.66667 12.8333V18.6666C4.67053 19.065 4.74316 19.4597 4.88133 19.8333H4.66667C4.35725 19.8333 4.0605 19.9562 3.84171 20.175C3.62292 20.3938 3.5 20.6905 3.5 21C3.5 21.3094 3.62292 21.6061 3.84171 21.8249C4.0605 22.0437 4.35725 22.1666 4.66667 22.1666H23.3333C23.6428 22.1666 23.9395 22.0437 24.1583 21.8249C24.3771 21.6061 24.5 21.3094 24.5 21C24.5 20.6905 24.3771 20.3938 24.1583 20.175C23.9395 19.9562 23.6428 19.8333 23.3333 19.8333Z" fill="#717579"></path>
+                    <path d="M9.9819 24.5C10.3863 25.2088 10.971 25.7981 11.6766 26.2079C12.3823 26.6178 13.1838 26.8337 13.9999 26.8337C14.816 26.8337 15.6175 26.6178 16.3232 26.2079C17.0288 25.7981 17.6135 25.2088 18.0179 24.5H9.9819Z" fill="#717579"></path>
+                  </svg>
+                  <?php
+                  $userID = $_SESSION['user_id'];
+                  $sql = "SELECT COUNT(*) AS `total` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ?";
+                  $stmt = mysqli_stmt_init($conn);
+                  if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    // header("location: ./index.php?error");
+                    exit();
+                  }
+                  mysqli_stmt_bind_param($stmt, "s", $userID);
+                  mysqli_stmt_execute($stmt);
+                  $result = mysqli_stmt_get_result($stmt);
+                  if ($row = mysqli_fetch_assoc($result)) {
+                    $total = $row['total'];
+                  }
+                  ?>
+                  <span class="badge light text-white bg-warning rounded-circle"><?= $total ?></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
+                    <ul class="timeline">
+                      <?php
+                      $userID = $_SESSION['user_id'];
+                      $sql = "SELECT `fu`.`title`, `fu`.`first_name`, `fu`.`middle_name`, `fu`.`last_name`, `fu`.`image_path`, `n`.`category`, `n`.`description`, `n`.`date_added`, `un`.`id` FROM `notification` AS `n` INNER JOIN `user_notification` AS `un` ON `n`.`id` = `un`.`notification_id` INNER JOIN `faculty_user` AS `fu` ON `n`.`user_id` = `fu`.`id` WHERE `un`.`state` = 0 AND `un`.`user_id` = ?";
+                      $stmt = mysqli_stmt_init($conn);
+                      if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        // header("location: ./index.php?error");
+                        exit();
+                      }
+                      mysqli_stmt_bind_param($stmt, "s", $userID);
+                      mysqli_stmt_execute($stmt);
+                      $result = mysqli_stmt_get_result($stmt);
+                      if ($result->num_rows > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+                          <li>
+                            <div class="timeline-panel">
+                              <div class="media me-2">
+                                <img src="../profile_upload/<?php echo $row['image_path'] != "" ? $row['image_path'] : '../profile_upload/bsu.png'; ?>" width="45" alt="">
+                              </div>
+                              <div class="media-body">
+                                <a href="./update.notification.php?id=<?= $row['id'] ?>" style="font-size: 14px; font-style: italic;"><?= $row['title'] . ' ' . $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'] . ' ' . $row['description'] ?></a>
+                                <h6 class="mb-1" style="font-size:14px; font-weight:600"><?= $row['title'] . ' ' . $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'] ?></h6>
+                                <?php
+                                $dateString = $row['date_added'];
+                                $dateTime = new DateTime($dateString);
+                                $formattedDate = $dateTime->format('d F Y - h:i A');
+                                ?>
+                                <small class="d-block"><?= $formattedDate ?></small>
+                              </div>
+                            </div>
+                          </li>
+                        <?php
+                        }
+                      } else {
+                        ?>
+                        <li>
+                          <div class="timeline-panel">
+                            No Notification
+                          </div>
+                        </li>
+                      <?php
+                      }
+                      ?>
+                    </ul>
+                  </div>
+                </div>
+              </li>
 
               <li class="nav-item dropdown  header-profile">
                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
@@ -465,8 +502,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Research Projects</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers3"></div>
@@ -531,8 +568,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Faculty Researchers</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers6"></div>
@@ -600,8 +637,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Conferences Attend</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers1"></div>
@@ -670,8 +707,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Publications</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers"></div>
@@ -739,8 +776,8 @@ if (isset($_SESSION['user_id'])) {
                                                     } ?></h2>
                         <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers4"></div>
@@ -849,8 +886,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Inventions</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers7"></div>
@@ -936,8 +973,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row2['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Ongoing Research Projects</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers5"></div>
@@ -1005,8 +1042,8 @@ if (isset($_SESSION['user_id'])) {
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Completed Research Projects</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                  } ?></span>
+                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                    } ?></span>
                       </div>
                     </div>
                     <div id="NewCustomers2"></div>
@@ -1024,8 +1061,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col">
                       <h4 class="fs-20 font-w700 mb-2">Research Statistics (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                  echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                } ?>)</h4>
+                                                                                                    echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                  } ?>)</h4>
                     </div><!-- 
                                         <div class="col">
                                             <div class= "float-end d-flex align-items-center project-tab mb-2"> 
@@ -1535,8 +1572,8 @@ if (isset($_SESSION['user_id'])) {
                   <div class="card">
                     <div class="card-header">
                       <h4 class="fs-20 font-w700 mb-2">Ongoing Research Projects (<?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                                        echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                                      } ?>)</h4>
+                                                                                                          echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                                        } ?>)</h4>
                     </div>
                     <div class="card-body">
                       <div id="morris_donught" class="morris_chart_height"></div>
