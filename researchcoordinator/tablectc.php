@@ -426,7 +426,7 @@ if (isset($_GET['id'])) {
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['to_ctc']?></td>
                         <td class="col-md-3">
                           <div class="rounded-lg me-2" width="350px" alt="" style="text-align: left;"></div><?php echo $row["title_ctc"] ?>
                         </td>

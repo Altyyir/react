@@ -403,7 +403,7 @@ if (isset($_GET['id'])) {
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                           <tr>
-                            <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                            <td style="display: none;" class='center-align px-3'><?=$row['year_published']?></td>
                             <td class="col-md-2"><?php echo $row["main_author"] ?></td>
                             <td class="col-md-3" style="text-align: center;"><?php echo $row["title"] ?></td>
                             <td class="col-md-2" style="text-align: center;"><?php echo $row["year_published"] ?></td>

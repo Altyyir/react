@@ -456,7 +456,7 @@ $count = 1;
                     while ($row = mysqli_fetch_array($result1)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong><?php echo $count ?></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?= $row['end_date'] ?></td>
                         <td class='col-md-3'><?php echo $row["project_title"] ?></td>
                         <td class="col-md-2" style="width: 100px; text-align: center;"><?php echo $row["partnership"] ?></td>
 
@@ -579,11 +579,29 @@ $count = 1;
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <div class="d-flex project-image">
-                  <!-- <img src="images/customers/22.jpg" alt=""> -->
-                  <textarea id="commentText_<?= $row['id'] ?>" style="width:340px; padding-left: 10px; border-radius: 13px;" rows="2" placeholder="Write a comment..."></textarea>
-                  <button type="button" class="btn btn-primary" style="margin: 5px;" onclick="addComment()">Send</button>
+              <div class="modal-footer justify-content-center">
+                <div class="row" style="width: 100%;">
+                  <div class="col">
+                    <select id="comment-category-<?= $row['id'] ?>" onchange="loadComments()" class="form-control form-control-sm">
+                      <option value="all">All</option>
+                      <option value="research title">Research Title</option>
+                      <option value="roles">Roles</option>
+                      <option value="executive brief">Executive Brief</option>
+                      <option value="rationale">Rationale</option>
+                      <option value="objectives">Objectives</option>
+                      <option value="expected output">Expected Output</option>
+                      <option value="rrl">Review of Related Literature</option>
+                      <option value="methodology">Methodology</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row" style="width: 100%;">
+                  <div class="col-9">
+                    <textarea id="commentText_<?= $row['id'] ?>" class="form-control form-control-sm" rows="2" placeholder="Write a comment..."></textarea>
+                  </div>
+                  <div class="col-3">
+                    <button type="button" class="btn btn-primary" onclick="addComment(`<?= $row['id'] ?>`)">Send</button>
+                  </div>
                 </div>
               </div>
             </div>

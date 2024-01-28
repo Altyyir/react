@@ -3,6 +3,8 @@
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	    if (isset($_POST['addapprovalletter'])) {
 	        $id = $_POST['id'];
+					$startDate = $_POST['start_date'];
+					$endDate = $_POST['end_date'];
 	        // Include database connection code or make sure $conn is defined before this code
 
 	        // Check if a file was uploaded
@@ -18,7 +20,7 @@
 	            if (move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
 	                // Image uploaded successfully, insert data into the database
 	                $approval_letter = mysqli_real_escape_string($conn, $target_file); // Escape for database security
-	                $sql = "UPDATE `research_topic` SET `approval_letter` = '$approval_letter' WHERE `id` = '$id'";
+	                $sql = "UPDATE `research_topic` SET `approval_letter` = '$approval_letter', `start_date` = '$startDate', `end_date` = '$endDate' WHERE `id` = '$id'";
 	                $result = $conn->query($sql);
 	                header("location: ./proposal.php");
 	            } else {

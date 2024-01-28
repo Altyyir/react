@@ -373,7 +373,7 @@ if (isset($_GET['id'])) {
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['year_end']?></td>
                         <td class="col-md-3"><?php echo $row["degree"] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["major_field"] ?></td>
                         <td class="col-md-2" style="text-align: center;"><?php echo $row["sector"] ?></td>

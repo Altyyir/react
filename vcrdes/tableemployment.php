@@ -409,7 +409,7 @@ if (isset($_GET['id'])) {
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['appointment_end']?></td>
                         <td class="col-md-4"><?= $row['title'] ?> <?= $row['first_name'] ?> <?= $row['middle_name'] ?> <?= $row['last_name'] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["agency"] ?></td>
                         <td class="col-md-3" style="text-align: center"><?php echo $row["plantilla_position"] ?></td>

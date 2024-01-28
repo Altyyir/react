@@ -46,22 +46,36 @@ while ($row = $result->fetch_assoc()) {
 
 
 $query = "SELECT rt.* FROM research_topic AS rt INNER JOIN college AS c ON rt.college_id = c.id WHERE";
-if (isset($_GET['filterType']) && isset($_GET['annual'])) {
-  if ($_GET['filterType'] != "none") {
+if (isset($_GET['filterType']) && isset($_GET['annual']) && isset($_GET['status']) && isset($_GET['funding'])) {
+  if ($_GET['filterType'] != "all") {
     $filterType = $_GET['filterType'];
     $college = " c.abbreviation_college LIKE '$filterType'";
   } else {
     $college = " c.abbreviation_college LIKE '%%'";
   }
 
-  if ($_GET['annual'] != "none") {
+  if ($_GET['annual'] != "all") {
     $year = $_GET['annual'];
     $annual = " AND YEAR(rt.dateAdded) = '$year'";
   } else {
     $annual = " AND YEAR(rt.dateAdded)";
   }
 
-  $query = $query . $college . $annual . " ORDER BY rt.dateAdded DESC";
+  if ($_GET['status'] != "all") {
+    $status = $_GET['status'];
+    $status = " AND rt.status LIKE '$status'";
+  } else {
+    $status = " AND rt.status LIKE '%%'";
+  }
+
+  if ($_GET['funding'] != "all") {
+    $funding = $_GET['funding'];
+    $funding = " AND rt.partnership LIKE '$funding'";
+  } else {
+    $funding = " AND rt.partnership LIKE '%%'";
+  }
+
+  $query = $query . $college . $annual . $status . $funding . " ORDER BY rt.dateAdded DESC";
 } else {
   $query = "SELECT * FROM research_topic ORDER BY dateAdded DESC";
 }
@@ -454,7 +468,7 @@ $count = 1;
                           <label class="form-label">Filter by
                           </label>
                           <select class="form-control" name="filterType">
-                            <option value="none" selected="">Choose Colleges</option>
+                            <option value="all" selected="">Choose Colleges</option>
                             <option>CABEIHM</option>
                             <option>CAS</option>
                             <option>CICS</option>
@@ -466,7 +480,7 @@ $count = 1;
                           <label class="form-label">Filter by
                           </label>
                           <select class="form-control" name="annual">
-                            <option value="none" selected="">Choose Year</option>
+                            <option value="all" selected="">Choose Year</option>
                             <?php
                             $sql = "SELECT DISTINCT(YEAR(dateAdded)) AS year FROM research_topic ORDER BY year DESC";
                             $result = $conn->query($sql);
@@ -478,7 +492,26 @@ $count = 1;
                             ?>
                           </select>
                         </div>
-
+                        <div class="col-lg-12 mb-3">
+                          <label class="form-label">Status
+                          </label>
+                          <select class="form-control" name="status">
+                            <option value="all">All</option>
+                            <option value="For Evaluation">For Evaluation</option>
+                            <option value="Approved With Notice to Proceed">Approved With Notice to Proceed</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Completed">Completed</option>
+                          </select>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                          <label class="form-label">Funding Type
+                          </label>
+                          <select class="form-control" name="funding">
+                            <option value="all">All</option>
+                            <option value="Institutionaly Funded">Institutionally Funded</option>
+                            <option value="Externaly Funded">Externally Funded</option>
+                          </select>
+                        </div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -512,7 +545,7 @@ $count = 1;
                     while ($row = mysqli_fetch_assoc($result1)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong><?php echo $count ?></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['end_date']?></td>
                         <td class='col-md-3'><?php echo $row["project_title"] ?></td>
                         <td class="col-md-2" style="width: 100px;"><?php echo $row["partnership"] ?></td>
                         <?php
@@ -619,6 +652,18 @@ $count = 1;
                                         <input type="file" id="file1" accept="image/png, image/jpg, image/jpeg" name="file" hidden>
                                         <button type="button" id="select-image1">Select Image</button>
                                       </div>
+                                      <div class="row mt-3">
+                                        <div class="col-12">
+                                          <label>Start Date</label>
+                                          <input type="date" name="start_date" class="form-control">
+                                        </div>
+                                      </div>
+                                      <div class="row mt-3">
+                                        <div class="col-12">
+                                          <label>End Date</label>
+                                          <input type="date" name="end_date" class="form-control">
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -685,13 +730,30 @@ $count = 1;
 
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <div class="d-flex project-image">
-                    <!-- <img src="images/customers/22.jpg" alt=""> -->
-                    <textarea id="commentText_<?= $row['id'] ?>" style="width:340px; padding-left: 10px; border-radius: 13px;" rows="2" placeholder="Write a comment..."></textarea>
-                    <button type="button" class="btn btn-primary" style="margin: 5px;" onclick="addComment()">Send</button>
+                <div class="modal-footer justify-content-center">
+                  <div class="row" style="width: 100%;">
+                    <div class="col">
+                      <select id="comment-category-<?= $row['id'] ?>" onchange="loadComments()" class="form-control form-control-sm">
+                        <option value="all">All</option>
+                        <option value="research title">Research Title</option>
+                        <option value="roles">Roles</option>
+                        <option value="executive brief">Executive Brief</option>
+                        <option value="rationale">Rationale</option>
+                        <option value="objectives">Objectives</option>
+                        <option value="expected output">Expected Output</option>
+                        <option value="rrl">Review of Related Literature</option>
+                        <option value="methodology">Methodology</option>
+                      </select>
+                    </div>
                   </div>
-
+                  <div class="row" style="width: 100%;">
+                    <div class="col-9">
+                      <textarea id="commentText_<?= $row['id'] ?>" class="form-control form-control-sm" rows="2" placeholder="Write a comment..."></textarea>
+                    </div>
+                    <div class="col-3">
+                      <button type="button" class="btn btn-primary" onclick="addComment(`<?= $row['id'] ?>`)">Send</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,42 +1,42 @@
-../profile_upload/<?php
-                  session_start();
+<?php
+session_start();
 
-                  $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
-                  include 'dbconn.php';
+include 'dbconn.php';
 
-                  if (isset($_SESSION['user_id'])) {
-                    if ($_SESSION['authority'] == "System Admin") {
-                      header('location: ./systemadmin/');
-                    } elseif ($_SESSION['authority'] == "Faculty Researcher") {
-                      header('location: ./');
-                    } elseif ($_SESSION['authority'] == "Vice Chancellor for Research, Development & Extension Services") {
-                      header('location: ./vcrdes/');
-                    } elseif ($_SESSION['authority'] == "Dean/Associate Dean") {
-                      header('location: ./dean/');
-                    } elseif ($_SESSION['authority'] == "College Research Coordinator") {
-                      header('location: ./researchcoordinator/');
-                    }
-                  } else {
-                    header('location: ./page-login.php');
-                    exit();
-                  }
+if (isset($_SESSION['user_id'])) {
+  if ($_SESSION['authority'] == "System Admin") {
+    header('location: ./systemadmin/');
+  } elseif ($_SESSION['authority'] == "Faculty Researcher") {
+    header('location: ./');
+  } elseif ($_SESSION['authority'] == "Vice Chancellor for Research, Development & Extension Services") {
+    header('location: ./vcrdes/');
+  } elseif ($_SESSION['authority'] == "Dean/Associate Dean") {
+    header('location: ./dean/');
+  } elseif ($_SESSION['authority'] == "College Research Coordinator") {
+    header('location: ./researchcoordinator/');
+  }
+} else {
+  header('location: ./page-login.php');
+  exit();
+}
 
 
-                  if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
 
-                    $query = "DELETE FROM conferences WHERE id='$id'";
-                    $query_run = mysqli_query($conn, $query);
+  $query = "DELETE FROM conferences WHERE id='$id'";
+  $query_run = mysqli_query($conn, $query);
 
-                    if ($query_run) {
-                      echo '';
-                    } else {
-                      echo '';
-                    }
-                  }
+  if ($query_run) {
+    echo '';
+  } else {
+    echo '';
+  }
+}
 
-                  ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -423,7 +423,7 @@
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['to_conference']?></td>
                         <td class="col-md-4"><?= $row['title'] ?> <?= $row['first_name'] ?> <?= $row['middle_name'] ?> <?= $row['last_name'] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["themetitle"] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["organizer"] ?></td>

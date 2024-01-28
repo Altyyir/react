@@ -418,13 +418,13 @@ if (isset($_GET['id'])) {
                   </thead>
                   <tbody>
                     <?php
-                    $query = "SELECT per.id, per.degree, per.major_field, per.sector, per.status, fac.title, fac.first_name, fac.middle_name, fac.last_name FROM academic_background AS per INNER JOIN faculty_user AS fac ON per.added_by = fac.id ORDER BY id DESC";
+                    $query = "SELECT per.year_end, per.id, per.degree, per.major_field, per.sector, per.status, fac.title, fac.first_name, fac.middle_name, fac.last_name FROM academic_background AS per INNER JOIN faculty_user AS fac ON per.added_by = fac.id ORDER BY id DESC";
                     $result = $conn->query($query);
                     $count = 1;
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
+                        <td style="display: none;" class='center-align px-3'><?=$row['year_end']?></td>
                         <td class="col-md-4"><?= $row['title'] ?> <?= $row['first_name'] ?> <?= $row['middle_name'] ?> <?= $row['last_name'] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["degree"] ?></td>
                         <td class="col-md-3" style="text-align: center;"><?php echo $row["major_field"] ?></td>

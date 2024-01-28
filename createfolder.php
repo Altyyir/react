@@ -426,7 +426,7 @@ Content body start
                     </div>
                 </div>
             </div>
-                <button type="button" class="btn btn-primary btn-rounded fs-16" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fas fa-plus me-3 scale4" style="color: #fff;"></i>Create Folder</a></button>
+                <button type="button" class="btn btn-primary btn-rounded fs-16" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fas fa-plus me-3 scale4" style="color: #fff;"></i>Add Project</a></button>
               </div>
             </div>
           </div>        

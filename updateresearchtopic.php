@@ -544,12 +544,19 @@ Content body start
                               <div class="col-lg-6 mb-3">
                                 <label class="form-label">Start Date <span class="text-danger">*</span>
                                 </label>
-                                <input type="date" class="form-control form-control-lg" name="startdate" required id="startdate" value="<?=$data['start_date']?>">
+                                <?php
+                                if($data['status'] == "For Evaluation") {
+                                  $readonly = "";
+                                } else {
+                                  $readonly = "readonly";
+                                }
+                                ?>
+                                <input type="date" class="form-control form-control-lg" name="startdate" <?=$readonly?> required id="startdate" value="<?=$data['start_date']?>">
                               </div>
                               <div class="col-lg-6 mb-3">
                                 <label class="form-label">End Date <span class="text-danger">*</span>
                                 </label>
-                                <input type="date" class="form-control form-control-lg" name="enddate" required id="enddate" value="<?=$data['end_date']?>">
+                                <input type="date" class="form-control form-control-lg" name="enddate" <?=$readonly?> required id="enddate" value="<?=$data['end_date']?>">
                               </div>
                               <!-- <div class="col-lg-6 mb-3">
                                 <label class="form-label">No. of BatStateU Female Participants <span class="text-danger">*</span>

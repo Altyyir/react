@@ -355,12 +355,14 @@ if (isset($_SESSION['user_id'])) {
                                 <select id="annualFilterInput" class="form-control" name="annual">
                                   <option value="none" selected="">Choose Year</option>
                                   <?php
-                                  $sql = "SELECT DISTINCT(YEAR(dateAdded)) AS year FROM research_topic ORDER BY year DESC";
-                                  $result = $conn->query($sql);
-                                  while ($yearRow = $result->fetch_assoc()) {
+                                  $currentYear = date("Y");
+                                  $count = 0;
+                                  while ($count < 5) {
                                   ?>
-                                    <option value="<?= $yearRow['year'] ?>"><?= $yearRow['year'] ?></option>
+                                    <option value="<?= $currentYear ?>"><?= $currentYear ?></option>
                                   <?php
+                                    $currentYear--;
+                                    $count++;
                                   }
                                   ?>
                                 </select>
@@ -590,43 +592,43 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 1 and 3 AND YEAR(year_published) = '$yearFilter' AND `year_published` < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 1 and 3 AND `year_published` < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 4 and 6 AND YEAR(year_published) = '$yearFilter' AND `year_published` < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 4 and 6 AND `year_published` < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 7 and 9 AND YEAR(year_published) = '$yearFilter' AND `year_published` < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 7 and 9 AND `year_published` < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 10 and 12 AND YEAR(year_published) = '$yearFilter' AND `year_published` < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND MONTH(year_published) BETWEEN 10 and 12 AND `year_published` < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND `year_published` < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND YEAR(year_published) = '$yearFilter' AND `year_published` < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND `year_published` < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `scw_` WHERE added_by = $id AND `year_published` < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
