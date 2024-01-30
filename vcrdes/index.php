@@ -364,7 +364,7 @@
        <div class="container-fluid">
          <div class="row">
            <div class="col-xl-12">
-             <div class="row">
+             <div class="row justify-content-center">
                <div class="row">
                  <div class="col-xl-12">
                    <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -898,8 +898,118 @@
                    <div class="card-body d-flex px-4 justify-content-between">
                      <div>
                        <div class="">
-
-                         <h2 class="fs-32 font-w700">000</h2>
+                         <?php
+                          if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
+                            if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 1 and 3";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 4 and 6";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 7 and 9";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE MONTH(dateAdded) BETWEEN 10 and 12";
+                              }
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                            }
+                          } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $yearFilter = $_GET['annual'];
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` WHERE YEAR(dateAdded) = '$yearFilter'";
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                            }
+                          } else {
+                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions`";
+                          }
+                          $result = $conn->query($sql);
+                          $row = $result->fetch_assoc();
+                          ?>
+                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
+                         <span class="fs-18 font-w500 d-block">No. of Inventions</span>
+                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
+                                                                                        echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                                                                                      } ?></span>
+                       </div>
+                     </div>
+                     <div id="NewCustomers7"></div>
+                     <!-- <div class="bilog">
+                                            <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
+                                        </div> -->
+                   </div>
+                 </div>
+               </div>
+               <div class="col-xl-3 col-sm-3">
+                 <div class="card">
+                   <div class="card-body d-flex px-4 justify-content-between">
+                     <div>
+                       <div class="">
+                         <?php
+                          if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
+                            if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND `participation` = 'Paper Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND `participation` = 'Paper Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND `participation` = 'Paper Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND `participation` = 'Paper Presenter'";
+                              }
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Paper Presenter'";
+                            }
+                          } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $yearFilter = $_GET['annual'];
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Paper Presenter'";
+                            }
+                          } else {
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Paper Presenter'";
+                          }
+                          $result = $conn->query($sql);
+                          $row = $result->fetch_assoc();
+                          ?>
+                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                          <span class="fs-18 font-w500 d-block">No. of Paper Presented</span>
                          <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                         echo ucwords(" - " . $_GET['quarter'] . " quarter");
@@ -918,8 +1028,53 @@
                    <div class="card-body d-flex px-4 justify-content-between">
                      <div>
                        <div class="">
-
-                         <h2 class="fs-32 font-w700">000</h2>
+                         <?php
+                          if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
+                            if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 1 and 3 AND `participation` = 'Poster Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 4 and 6 AND `participation` = 'Poster Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 7 and 9 AND `participation` = 'Poster Presenter'";
+                              }
+                            } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
+                              $yearFilter = $_GET['annual'];
+                              if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              } else {
+                                $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(dateAdded) BETWEEN 10 and 12 AND `participation` = 'Poster Presenter'";
+                              }
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Poster Presenter'";
+                            }
+                          } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
+                            if (isset($_GET['annual']) && $_GET['annual'] != "none") {
+                              $yearFilter = $_GET['annual'];
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                            } else {
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Poster Presenter'";
+                            }
+                          } else {
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE `participation` = 'Poster Presenter'";
+                          }
+                          $result = $conn->query($sql);
+                          $row = $result->fetch_assoc();
+                          ?>
+                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                          <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
                          <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                         echo ucwords(" - " . $_GET['quarter'] . " quarter");
