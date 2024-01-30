@@ -456,6 +456,7 @@ Content body start
                     <tr>
                       <th style="display:none;" class='center-align px-3'><strong>#</strong></th>
                       <th class="col-md-3"><strong>Name</strong></th>
+                      <th class="col-md-3" style="text-align: center;"><strong>Type of Report</strong></th>
                       <th class="col-md-3" style="text-align: center;"><strong>Date</strong></th>
                       <th class="col-md-3" style="text-align: center;"><strong>Ownner</strong></th>
                       <th class="col-md-2" style="text-align: center;"><strong>Action</strong></th>
@@ -486,6 +487,7 @@ Content body start
                           <td class="col-md-3">
                             <img src="images/pdf.png" width="18" alt="" style="margin-right: 5px;"> <?= $row['file_name'] ?>
                           </td>
+                          <td class="col-md-3" style="text-align: center;"><?= $row['category'] ?></td>
                           <td class="col-md-3" style="text-align: center;">
                             <?php
                             $originalDate = $row['date_added'];

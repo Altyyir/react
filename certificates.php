@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Add certificate logic
     $folderID = $_SESSION['folderID'];
     $userID = $_SESSION['user_id'];
+    $type = $_POST['type'];
     if (isset($_SESSION['folderName']) && $_SESSION['folderName'] == "approved project proposal") {
       $target_dir = 'certificate_upload/approved project proposal/';
     } elseif (isset($_SESSION['folderName']) && $_SESSION['folderName'] == "noticed to proceed") {
@@ -63,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
       } else {
         $file_path = $target_file;
-        $sql = "INSERT INTO `certificates`(`create_folder_id`, `added_by`, `path`, `file_name`) VALUES ($folderID, $userID, '$tmpFileName','$fileName')";
+        $sql = "INSERT INTO `certificates`(`create_folder_id`, `added_by`, `category`, `path`, `file_name`) VALUES ($folderID, $userID, '$type', '$tmpFileName','$fileName')";
 
         if (mysqli_query($conn, $sql)) {
           // Certificate added successfully
@@ -140,37 +141,6 @@ if (isset($_GET['id'])) {
     echo '';
   }
 }
-if (isset($_POST['editcertificate'])) {
-  $id = $_POST['updateid'];
-  $title = $_POST['updatetitle'];
-  $link = $_POST['updatelink'];
-
-  // Handle file upload
-  if ($_FILES['updateimagepath']['error'] === 0) {
-    $image_path = 'certificate_upload/' . $_FILES['updateimagepath']['name']; // Modify the path as needed
-
-    // Move the uploaded file to the destination directory
-    move_uploaded_file($_FILES['updateimagepath']['tmp_name'], $image_path);
-  } else {
-    // Handle the case where no new image is selected
-    $image_path = $_POST['current_image_path']; // You can add a hidden field with the current image path in your form
-  }
-
-  $sql = "UPDATE `certificates` SET `title`= ?, `link`= ?, `image_path`= ? WHERE `id` = ?";
-  $stmt = mysqli_prepare($conn, $sql);
-
-  if ($stmt) {
-    mysqli_stmt_bind_param($stmt, "ssss", $title, $link, $image_path, $id);
-    if (mysqli_stmt_execute($stmt)) {
-      header("location: certificates.php");
-    } else {
-      header("location: certificates.php");
-    }
-    mysqli_stmt_close($stmt);
-  }
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -569,15 +539,13 @@ Content body start
                           <label class="form-label">Upload<span class="text-danger">*</span></label>
                           <input type="file" accept=".pdf" class="form-control form-control-lg" rows="5" name="file" style="padding-top: 10px;" required></input>
                         </div>
-                        <!-- <div class="container1" style="margin-top: 14px;">
-                          <div id="img-area1" data-img="">
-                            <i class="fas fa-cloud-upload-alt" style="font-size: 50px; color: #a19c9c;"></i>
-                            <h3>Upload Image</h3>
-                            <p>Image size must be less than <span>2MB</span></p>
-                          </div>
-                          <input type="file" id="file1" accept="image/png, image/jpg, image/jpeg, .pdf" name="file" hidden>
-                          <button type="button" id="select-image1">Select Image</button>
-                        </div> -->
+                        <div class="col-lg-12 mb-3">
+                          <label>Type</label>
+                          <select name="type" class="form-control">
+                            <option value="Financial Report">Financial Report</option>
+                            <option value="Accomplishment Report">Accomplishment Report</option>
+                          </select>
+                        </div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -599,6 +567,7 @@ Content body start
                     <tr>
                       <th style="display:none;" class='center-align px-3'><strong>#</strong></th>
                       <th class="col-md-3"><strong>Name</strong></th>
+                      <th class="col-md-3" style="text-align: center;"><strong>Type of Report</strong></th>
                       <th class="col-md-3" style="text-align: center;"><strong>Date</strong></th>
                       <th class="col-md-3" style="text-align: center;"><strong>Ownner</strong></th>
                       <th class="col-md-2" style="text-align: center;"><strong>Action</strong></th>
@@ -623,6 +592,7 @@ Content body start
                           <td class="col-md-3">
                             <img src="images/pdf.png" width="18" alt="" style="margin-right: 5px;"> <?= $row['file_name'] ?>
                           </td>
+                          <td class="col-md-3" style="text-align: center;"><?= $row['category'] ?></td>
                           <td class="col-md-3" style="text-align: center;">
                             <?php
                             $originalDate = $row['date_added'];
