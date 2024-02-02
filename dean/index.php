@@ -1032,7 +1032,7 @@ if (isset($_SESSION['user_id'])) {
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers7"></div>
+                    <div id="NewCustomers8"></div>
                   </div>
                 </div>
               </div>
@@ -1098,7 +1098,7 @@ if (isset($_SESSION['user_id'])) {
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers8"></div>
+                    <div id="NewCustomers9"></div>
                   </div>
                 </div>
               </div>

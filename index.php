@@ -504,7 +504,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Faculty Researchers</span>
+                        <span class="fs-18 font-w500 d-block">No. of Co-Researchers</span>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -977,7 +977,7 @@ if (isset($_SESSION['user_id'])) {
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers7"></div>
+                    <div id="NewCustomers8"></div>
                     <!-- <div class="bilog">
                                             <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
                                         </div> -->
@@ -1037,12 +1037,15 @@ if (isset($_SESSION['user_id'])) {
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
                         <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
-                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
-                                                                                      echo ucwords(" - " . $_GET['quarter'] . " quarter");
-                                                                                    } ?></span>
+                        <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?>
+                          <?php if ($_GET['filterType'] == "quarter") {
+                             echo ucwords(" - " . $_GET['quarter'] . " quarter");
+                             } 
+                          ?>
+                        </span>
                       </div>
                     </div>
-                    <div id="NewCustomers8"></div>
+                    <div id="NewCustomers9"></div>
                     <!-- <div class="bilog">
                                             <img src="http://cdn.onlinewebfonts.com/svg/img_122918.png" alt="certificate" style="width: 30px;"> 
                                         </div> -->
