@@ -359,7 +359,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-xl-12">
-          <div class="row justify-content-center">
+            <div class="row justify-content-center">
               <div class="row">
                 <div class="col-xl-12">
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -440,46 +440,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             // 
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             //
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -506,46 +506,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 1 and 3 AND YEAR(rt.dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 1 and 3 AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 4 and 6 AND YEAR(rt.dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 4 and 6 AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 7 and 9 AND YEAR(rt.dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 7 and 9 AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 10 and 12 AND YEAR(rt.dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 10 and 12 AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND MONTH(rt.start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL";
+                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND YEAR(rt.dateAdded) = '$yearFilter'";
+                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL";
+                            $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL";
+                          $sql = "SELECT COUNT(DISTINCT(r.name)) AS `total` FROM `research_topic` AS rt INNER JOIN `research_representatives` AS rr ON rt.id = rr.research_topic_id INNER JOIN `representative` AS r ON rr.id = r.research_representatives_id WHERE rt.college_id = $college AND `college_id` IS NOT NULL AND end_date < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -575,46 +575,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND to_conference < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND to_conference < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -713,43 +713,43 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation'";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -779,43 +779,43 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded'";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Institutionaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -845,43 +845,43 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 1 and 3 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 4 and 6 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 7 and 9 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`dateAdded`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                              $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND MONTH(`rt`.`start_date`) BETWEEN 10 and 12 AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND YEAR(`rt`.`start_date`) = '$yearFilter' AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                            $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded'";
+                          $sql = "SELECT SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `college_id` = $college AND NOT `status` LIKE 'For Evaluation' AND `partnership` LIKE 'Externaly Funded' AND end_date < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -912,46 +912,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 1 and 3 AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 1 and 3 AND date_inventions < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 4 and 6 AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 4 and 6 AND date_inventions < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 7 and 9 AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 7 and 9 AND date_inventions < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 10 and 12 AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(date_inventions) BETWEEN 10 and 12 AND date_inventions < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND date_inventions < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(dateAdded) = '$yearFilter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND date_inventions < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `inventions` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND date_inventions < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -981,46 +981,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND `participation` = 'Paper Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Paper Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter'";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Paper Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -1047,46 +1047,46 @@ if (isset($_SESSION['user_id'])) {
                           if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 1 and 3 AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 4 and 6 AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 7 and 9 AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND `participation` = 'Poster Presenter'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(from_conference) BETWEEN 10 and 12 AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                             }
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(dateAdded) = '$yearFilter' AND `participation` = 'Poster Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(from_conference) = '$yearFilter' AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           } else {
-                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter'";
+                            $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                           }
                         } else {
-                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter'";
+                          $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND `participation` = 'Poster Presenter' AND to_conference < CURRENT_TIMESTAMP()";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
@@ -1142,47 +1142,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                               }
                               //
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1202,47 +1202,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND YEAR(dateAdded) = '$yearFilter'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1262,47 +1262,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND YEAR(dateAdded) = '$yearFilter'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1322,47 +1322,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
                               }
                               //
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND YEAR(dateAdded) = '$yearFilter'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1382,45 +1382,45 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND YEAR(dateAdded) = '$yearFilter'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1980,7 +1980,15 @@ if (isset($_SESSION['user_id'])) {
           if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
             echo "'Q1', 'Q2', 'Q3', 'Q4'";
           } else {
-            echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+            $yearArray = array();
+            $currentYear = date("Y");
+            $i = 0;
+            while ($i < 5) {
+              array_unshift($yearArray, $currentYear);
+              $currentYear--;
+              $i++;
+            }
+            echo implode(", ", $yearArray);
           }
           ?>
         ],
@@ -1991,9 +1999,9 @@ if (isset($_SESSION['user_id'])) {
                   $labels = array('1', '2', '3', '4');
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(start_date) AS quarter, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(start_date)";
                   } else {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(start_date) AS quarter, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(start_date)";
                   }
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
@@ -2012,8 +2020,8 @@ if (isset($_SESSION['user_id'])) {
                   }
                   echo '[' . implode(', ', $data) . '],';
                 } else {
-                  $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-                  $sql = "SELECT YEAR(dateAdded) AS year, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college GROUP BY YEAR(dateAdded)";
+                  $labels = $yearArray;
+                  $sql = "SELECT YEAR(start_date) AS year, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY YEAR(start_date)";
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
                   $data = [];
@@ -2074,7 +2082,15 @@ if (isset($_SESSION['user_id'])) {
           if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
             echo "'Q1', 'Q2', 'Q3', 'Q4'";
           } else {
-            echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+            $yearArray = array();
+            $currentYear = date("Y");
+            $i = 0;
+            while ($i < 5) {
+              array_unshift($yearArray, $currentYear);
+              $currentYear--;
+              $i++;
+            }
+            echo implode(", ", $yearArray);
           }
           ?>
         ],
@@ -2086,9 +2102,9 @@ if (isset($_SESSION['user_id'])) {
               $labels = array('1', '2', '3', '4');
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT QUARTER(rt.dateAdded) AS quarter, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college AND YEAR(rt.dateAdded) = '$yearFilter' GROUP BY QUARTER(rt.dateAdded)";
+                $sql = "SELECT QUARTER(rt.start_date) AS quarter, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college AND YEAR(rt.start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(rt.start_date)";
               } else {
-                $sql = "SELECT QUARTER(rt.dateAdded) AS quarter, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college GROUP BY QUARTER(rt.dateAdded)";
+                $sql = "SELECT QUARTER(rt.start_date) AS quarter, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(rt.start_date)";
               }
               $result = $conn->query($sql);
               $row = $result->fetch_assoc();
@@ -2105,8 +2121,8 @@ if (isset($_SESSION['user_id'])) {
                 }
               }
             } else {
-              $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-              $sql = "SELECT YEAR(rt.dateAdded) AS year, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college GROUP BY YEAR(rt.dateAdded)";
+              $labels = $yearArray;
+              $sql = "SELECT YEAR(rt.start_date) AS year, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY YEAR(rt.start_date)";
               $result = $conn->query($sql);
               $row = $result->fetch_assoc();
               foreach ($labels as $value) {
@@ -2169,7 +2185,15 @@ if (isset($_SESSION['user_id'])) {
               if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                 echo "'Q1', 'Q2', 'Q3', 'Q4'";
               } else {
-                echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+                $yearArray = array();
+                $currentYear = date("Y");
+                $i = 0;
+                while ($i < 5) {
+                  array_unshift($yearArray, $currentYear);
+                  $currentYear--;
+                  $i++;
+                }
+                echo implode(", ", $yearArray);
               }
               ?>
             ],
@@ -2181,9 +2205,9 @@ if (isset($_SESSION['user_id'])) {
                   $labels = array('1', '2', '3', '4');
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(from_conference) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(from_conference) = '$yearFilter' AND to_conference < CURRENT_TIMESTAMP() GROUP BY QUARTER(from_conference)";
                   } else {
-                    $sql = "SELECT SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT SELECT QUARTER(from_conference) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND to_conference < CURRENT_TIMESTAMP() GROUP BY QUARTER(from_conference)";
                   }
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
@@ -2200,8 +2224,8 @@ if (isset($_SESSION['user_id'])) {
                     }
                   }
                 } else {
-                  $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-                  $sql = "SELECT YEAR(dateAdded) AS year, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(dateAdded)";
+                  $labels = $yearArray;
+                  $sql = "SELECT YEAR(from_conference) AS year, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND to_conference < CURRENT_TIMESTAMP() GROUP BY YEAR(from_conference)";
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
                   foreach ($labels as $value) {
@@ -2269,7 +2293,15 @@ if (isset($_SESSION['user_id'])) {
               if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                 echo "'Q1', 'Q2', 'Q3', 'Q4'";
               } else {
-                echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+                $yearArray = array();
+                $currentYear = date("Y");
+                $i = 0;
+                while ($i < 5) {
+                  array_unshift($yearArray, $currentYear);
+                  $currentYear--;
+                  $i++;
+                }
+                echo implode(", ", $yearArray);
               }
               ?>
             ],
@@ -2281,9 +2313,9 @@ if (isset($_SESSION['user_id'])) {
                   $labels = array('1', '2', '3', '4');
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(year_published) AS quarter, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(year_published) = '$yearFilter' AND year_published < CURRENT_TIMESTAMP() GROUP BY QUARTER(year_published)";
                   } else {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(year_published) AS quarter, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND year_published < CURRENT_TIMESTAMP() GROUP BY QUARTER(year_published)";
                   }
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
@@ -2300,8 +2332,8 @@ if (isset($_SESSION['user_id'])) {
                     }
                   }
                 } else {
-                  $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-                  $sql = "SELECT YEAR(dateAdded) AS year, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(dateAdded)";
+                  $labels = $yearArray;
+                  $sql = "SELECT YEAR(year_published) AS year, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND year_published < CURRENT_TIMESTAMP() GROUP BY YEAR(year_published)";
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
                   foreach ($labels as $value) {
@@ -2365,7 +2397,15 @@ if (isset($_SESSION['user_id'])) {
               if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                 echo "'Q1', 'Q2', 'Q3', 'Q4'";
               } else {
-                echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+                $yearArray = array();
+                $currentYear = date("Y");
+                $i = 0;
+                while ($i < 5) {
+                  array_unshift($yearArray, $currentYear);
+                  $currentYear--;
+                  $i++;
+                }
+                echo implode(", ", $yearArray);
               }
               ?>
             ],
@@ -2377,11 +2417,10 @@ if (isset($_SESSION['user_id'])) {
                   $labels = array('1', '2', '3', '4');
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(start_date) AS quarter, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(start_date)";
                     $result = $conn->query($sql);
                   } else {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND added_by = $id GROUP BY QUARTER(dateAdded)";
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(start_date) AS quarter, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY QUARTER(start_date)";
                     $result = $conn->query($sql);
                   }
                   $result = $conn->query($sql);
@@ -2399,8 +2438,8 @@ if (isset($_SESSION['user_id'])) {
                     }
                   }
                 } else {
-                  $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-                  $sql = "SELECT YEAR(dateAdded) AS year, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college GROUP BY YEAR(dateAdded)";
+                  $labels = $yearArray;
+                  $sql = "SELECT YEAR(start_date) AS year, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY YEAR(start_date)";
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
                   foreach ($labels as $value) {
@@ -2452,11 +2491,11 @@ if (isset($_SESSION['user_id'])) {
       $labels = array('1', '2', '3', '4');
       $yearFilter = $_GET['annual'];
       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-        $sql = "SELECT QUARTER(`rt`.`dateAdded`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' GROUP BY `quarter`";
-        $sql2 = "SELECT QUARTER(`rt`.`dateAdded`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college AND YEAR(`rt`.`dateAdded`) = '$yearFilter' GROUP BY `quarter`";
+        $sql = "SELECT QUARTER(`rt`.`start_date`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college AND YEAR(`rt`.`start_date`) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `quarter`";
+        $sql2 = "SELECT QUARTER(`rt`.`start_date`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college AND YEAR(`rt`.`start_date`) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `quarter`";
       } else {
-        $sql = "SELECT QUARTER(`rt`.`dateAdded`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college GROUP BY `quarter`";
-        $sql2 = "SELECT QUARTER(`rt`.`dateAdded`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college GROUP BY `quarter`";
+        $sql = "SELECT QUARTER(`rt`.`start_date`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `quarter`";
+        $sql2 = "SELECT QUARTER(`rt`.`start_date`) AS `quarter`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `quarter`";
       }
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
@@ -2492,9 +2531,9 @@ if (isset($_SESSION['user_id'])) {
       }
       $institutionalyFunded = '[' . implode(', ', $data) . '],';
     } else {
-      $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-      $sql = "SELECT YEAR(`rt`.`dateAdded`) AS `year`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college GROUP BY `year`";
-      $sql2 = "SELECT YEAR(`rt`.`dateAdded`) AS `year`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college GROUP BY `year`";
+      $labels = $yearArray;
+      $sql = "SELECT YEAR(`rt`.`start_date`) AS `year`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Externaly Funded' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `year`";
+      $sql2 = "SELECT YEAR(`rt`.`start_date`) AS `year`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `year`";
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
       $data = [];
@@ -2541,7 +2580,15 @@ if (isset($_SESSION['user_id'])) {
           if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
             echo "'Q1', 'Q2', 'Q3', 'Q4'";
           } else {
-            echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+            $yearArray = array();
+            $currentYear = date("Y");
+            $i = 0;
+            while ($i < 5) {
+              array_unshift($yearArray, $currentYear);
+              $currentYear--;
+              $i++;
+            }
+            echo implode(", ", $yearArray);
           }
           ?>
         ],
@@ -2586,7 +2633,15 @@ if (isset($_SESSION['user_id'])) {
               if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                 echo "'Q1', 'Q2', 'Q3', 'Q4'";
               } else {
-                echo "'2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'";
+                $yearArray = array();
+                $currentYear = date("Y");
+                $i = 0;
+                while ($i < 5) {
+                  array_unshift($yearArray, $currentYear);
+                  $currentYear--;
+                  $i++;
+                }
+                echo implode(", ", $yearArray);
               }
               ?>
             ],
@@ -2598,9 +2653,9 @@ if (isset($_SESSION['user_id'])) {
                   $labels = array('1', '2', '3', '4');
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(date_inventions) AS quarter, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(date_inventions) = '$yearFilter' AND date_inventions < CURRENT_TIMESTAMP() GROUP BY QUARTER(date_inventions)";
                   } else {
-                    $sql = "SELECT QUARTER(dateAdded) AS quarter, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY QUARTER(dateAdded)";
+                    $sql = "SELECT QUARTER(date_inventions) AS quarter, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND date_inventions < CURRENT_TIMESTAMP() GROUP BY QUARTER(date_inventions)";
                   }
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
@@ -2617,8 +2672,8 @@ if (isset($_SESSION['user_id'])) {
                     }
                   }
                 } else {
-                  $labels = array('2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030');
-                  $sql = "SELECT YEAR(dateAdded) AS year, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(dateAdded)";
+                  $labels = $yearArray;
+                  $sql = "SELECT YEAR(date_inventions) AS year, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND date_inventions < CURRENT_TIMESTAMP() GROUP BY YEAR(date_inventions)";
                   $result = $conn->query($sql);
                   $row = $result->fetch_assoc();
                   foreach ($labels as $value) {
@@ -2672,38 +2727,38 @@ if (isset($_SESSION['user_id'])) {
                     if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                       $yearFilter = $_GET['annual'];
                       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       } else {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       }
                     } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                       $yearFilter = $_GET['annual'];
                       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       } else {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       }
@@ -2711,94 +2766,80 @@ if (isset($_SESSION['user_id'])) {
                     } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                       $yearFilter = $_GET['annual'];
                       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       } else {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       }
                     } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                       $yearFilter = $_GET['annual'];
                       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       } else {
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
 
-                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12";
+                        $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
                         $result = $conn->query($sql);
                         $row2 = $result->fetch_assoc();
                       }
                     } else {
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row = $result->fetch_assoc();
 
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row2 = $result->fetch_assoc();
                     }
                   } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                     if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                       $yearFilter = $_GET['annual'];
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row = $result->fetch_assoc();
 
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND YEAR(dateAdded) = '$yearFilter'";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row2 = $result->fetch_assoc();
                     } else {
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row = $result->fetch_assoc();
 
-                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
+                      $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                       $result = $conn->query($sql);
                       $row2 = $result->fetch_assoc();
                     }
                   } else {
-                    $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
+                    $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                     $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
 
-                    $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
+                    $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
                     $result = $conn->query($sql);
                     $row2 = $result->fetch_assoc();
                   }
                   echo $row['total'];
                   ?>,
-
-          // <?php
-              //         $college = $_SESSION['college'];
-              //         $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
-              //         $result = $conn->query($sql);
-              //         $row = $result->fetch_assoc();
-
-              //         $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `college_id` = $college";
-              //         $result = $conn->query($sql);
-              //         $row2 = $result->fetch_assoc();
-              //         echo $row['total']
-              //     
-              ?>,
-
         }, {
           label: "\xa0 \xa0 Ongoing Research Project \xa0 \xa0",
           value: <?php
@@ -2826,43 +2867,43 @@ if (isset($_SESSION['user_id'])) {
             if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 1 and 3 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 4 and 6 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college ND MONTH(dateAdded) BETWEEN 4 and 6 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college ND MONTH(start_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 7 and 9 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(dateAdded) BETWEEN 10 and 12 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(start_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
               }
             } else {
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
             }
           } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
               $yearFilter = $_GET['annual'];
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND YEAR(start_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
             } else {
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
             }
           } else {
-            $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
+            $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
           }
           $result = $conn->query($sql);
           $row = $result->fetch_assoc();
