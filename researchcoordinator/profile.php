@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
 
 
   <!-- PAGE TITLE HERE -->
-  <title>Dean/Associate Dean</title>
+  <title>College Research Coordinator</title>
 
   <!-- FAVICONS ICON -->
   <link rel="shortcut icon" type="image/png" href="images/bsu.png">

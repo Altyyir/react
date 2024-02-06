@@ -1087,30 +1087,34 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12";
+
                                 }
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id";
@@ -1118,7 +1122,8 @@ if (isset($_SESSION['user_id'])) {
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND YEAR(dateAdded) = '$yearFilter'";
+
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id AND YEAR(end_date) = '$yearFilter'";
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `added_by` = $id";
                               }
@@ -1142,30 +1147,34 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id";
@@ -1173,7 +1182,9 @@ if (isset($_SESSION['user_id'])) {
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND YEAR(dateAdded) = '$yearFilter'";
+
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id AND YEAR(end_date) = '$yearFilter'";
+
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'For Evaluation' AND `added_by` = $id";
                               }
@@ -1197,30 +1208,38 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12";
+
                                 }
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id";
@@ -1228,7 +1247,9 @@ if (isset($_SESSION['user_id'])) {
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND YEAR(dateAdded) = '$yearFilter'";
+
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id AND YEAR(end_date) = '$yearFilter'";
+
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Approved with notice to proceed' AND `added_by` = $id";
                               }
@@ -1252,30 +1273,38 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12";
+
                                 }
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id";
@@ -1283,7 +1312,9 @@ if (isset($_SESSION['user_id'])) {
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND YEAR(dateAdded) = '$yearFilter'";
+
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id AND YEAR(end_date) = '$yearFilter'";
+
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Ongoing' AND `added_by` = $id";
                               }
@@ -1307,30 +1338,38 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9";
+
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter'";
+
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12";
+
                                 }
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id";
@@ -1338,7 +1377,9 @@ if (isset($_SESSION['user_id'])) {
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND YEAR(dateAdded) = '$yearFilter'";
+
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id AND YEAR(end_date) = '$yearFilter'";
+
                               } else {
                                 $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `status` = 'Completed' AND `added_by` = $id";
                               }
@@ -2740,30 +2781,38 @@ if (isset($_SESSION['user_id'])) {
             if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 1 and 3 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 1 and 3 GROUP BY `status` ORDER BY `status`";
+
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 4 and 6 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 4 and 6 GROUP BY `status` ORDER BY `status`";
+
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 7 and 9 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 7 and 9 GROUP BY `status` ORDER BY `status`";
+
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(dateAdded) BETWEEN 10 and 12 GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND MONTH(end_date) BETWEEN 10 and 12 GROUP BY `status` ORDER BY `status`";
+
               }
             } else {
               $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id GROUP BY `status` ORDER BY `status`";
@@ -2771,7 +2820,9 @@ if (isset($_SESSION['user_id'])) {
           } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
               $yearFilter = $_GET['annual'];
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND YEAR(dateAdded) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
+
             } else {
               $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `added_by` = $id GROUP BY `status` ORDER BY `status`";
             }
