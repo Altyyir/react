@@ -542,8 +542,13 @@ Content body start
                         <div class="col-lg-12 mb-3">
                           <label>Type</label>
                           <select name="type" class="form-control">
+                            <option>Choose Type</option>
                             <option value="Financial Report">Financial Report</option>
                             <option value="Accomplishment Report">Accomplishment Report</option>
+                            <option value="Progress Report">Progress Report</option>
+                            <option value="Approved Project Proposal">Approved Project Proposal</option>
+                            <option value="Terminal Report">Terminal Report</option>
+
                           </select>
                         </div>
                       </div>
