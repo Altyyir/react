@@ -1614,6 +1614,262 @@
 	
 	}
 
+	var NewCustomers8 = function(){
+		var options = {
+		  series: [
+			{
+				name: 'Net Profit',
+				data: [600,300, 450, 300, 700, 600],
+				/* radius: 30,	 */
+			}, 				
+		],
+			chart: {
+			type: 'line',
+			height: 50,
+			width: 80,
+			toolbar: {
+				show: false,
+			},
+			zoom: {
+				enabled: false
+			},
+			sparkline: {
+				enabled: true
+			}
+			
+		},
+		
+		colors:['#0E8A74'],
+		dataLabels: {
+		  enabled: false,
+		},
+
+		legend: {
+			show: false,
+		},
+		stroke: {
+		  show: true,
+		  width: 6,
+		  curve:'smooth',
+		  colors:'#FFCF6D'
+		},
+		
+		grid: {
+			show:false,
+			borderColor: '#eee',
+			padding: {
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0
+
+			}
+		},
+		states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+		xaxis: {
+			categories: ['Jan', 'feb', 'Mar', 'Apr', 'May'],
+			axisBorder: {
+				show: false,
+			},
+			axisTicks: {
+				show: false
+			},
+			labels: {
+				show: false,
+				style: {
+					fontSize: '12px',
+				}
+			},
+			crosshairs: {
+				show: false,
+				position: 'front',
+				stroke: {
+					width: 1,
+					dashArray: 3
+				}
+			},
+			tooltip: {
+				enabled: true,
+				formatter: undefined,
+				offsetY: 0,
+				style: {
+					fontSize: '12px',
+				}
+			}
+		},
+		yaxis: {
+			show: false,
+		},
+		fill: {
+		  opacity: 1,
+		  colors:'#FB3E7A'
+		},
+		tooltip: {
+			enabled:false,
+			style: {
+				fontSize: '12px',
+			},
+			y: {
+				formatter: function(val) {
+					return "$" + val + " thousands"
+				}
+			}
+		}
+		};
+
+		var chartBar1 = new ApexCharts(document.querySelector("#NewCustomers8"), options);
+		chartBar1.render();
+	 
+	}
+
+	var NewCustomers9 = function(){
+		var options = {
+		  series: [
+			{
+				name: 'Net Profit',
+				data: [1000,200, 650, 400, 600, 900],
+				/* radius: 30,	 */
+			}, 				
+		],
+			chart: {
+			type: 'line',
+			height: 50,
+			width: 80,
+			toolbar: {
+				show: false,
+			},
+			zoom: {
+				enabled: false
+			},
+			sparkline: {
+				enabled: true
+			}
+			
+		},
+		
+		colors:['#0E8A74'],
+		dataLabels: {
+		  enabled: false,
+		},
+
+		legend: {
+			show: false,
+		},
+		stroke: {
+		  show: true,
+		  width: 6,
+		  curve:'smooth',
+		  colors:'#FFCF6D'
+		},
+		
+		grid: {
+			show:false,
+			borderColor: '#eee',
+			padding: {
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0
+
+			}
+		},
+		states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+		xaxis: {
+			categories: ['Jan', 'feb', 'Mar', 'Apr', 'May'],
+			axisBorder: {
+				show: false,
+			},
+			axisTicks: {
+				show: false
+			},
+			labels: {
+				show: false,
+				style: {
+					fontSize: '12px',
+				}
+			},
+			crosshairs: {
+				show: false,
+				position: 'front',
+				stroke: {
+					width: 1,
+					dashArray: 3
+				}
+			},
+			tooltip: {
+				enabled: true,
+				formatter: undefined,
+				offsetY: 0,
+				style: {
+					fontSize: '12px',
+				}
+			}
+		},
+		yaxis: {
+			show: false,
+		},
+		fill: {
+		  opacity: 1,
+		  colors:'#FB3E7A'
+		},
+		tooltip: {
+			enabled:false,
+			style: {
+				fontSize: '12px',
+			},
+			y: {
+				formatter: function(val) {
+					return "$" + val + " thousands"
+				}
+			}
+		}
+		};
+
+		var chartBar1 = new ApexCharts(document.querySelector("#NewCustomers9"), options);
+		chartBar1.render();
+	 
+	}
+
 	
 
  
@@ -1638,6 +1894,8 @@
 			NewCustomers5();
 			NewCustomers6();
 			NewCustomers7();
+			NewCustomers8();
+			NewCustomers9();
 			redial();
 			emailchart();
 				

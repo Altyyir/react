@@ -43,7 +43,7 @@ $count = 1;
   <meta name="format-detection" content="telephone=no">
 
   <!-- PAGE TITLE HERE -->
-  <title>Dean/Associate Dean</title>
+  <title>College Research Coordinator</title>
 
   <!-- FAVICONS ICON -->
   <link rel="shortcut icon" type="image/png" href="images/bsu.png">

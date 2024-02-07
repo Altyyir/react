@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
   <!-- PAGE TITLE HERE -->
-  <title>Dean/Associate Dean</title>
+  <title>College Research Coordinator</title>
 
   <!-- FAVICONS ICON -->
   <link rel="shortcut icon" type="image/jpg" href="images/bsu.png">
@@ -502,7 +502,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Research Projects</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">No. of Research Projects</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -637,7 +637,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Conferences Attend</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Conferences Attended</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -707,7 +707,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Publications</span>
+                        <a href="tablescw.php" class="fs-18 font-w500 d-block">No. of Publications</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -776,7 +776,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D</a> 
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -842,7 +842,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</a> 
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -908,7 +908,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -974,7 +974,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Inventions</span>
+                        <a href="tableinventions.php" class="fs-18 font-w500 d-block">No. of Inventions</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -1043,13 +1043,13 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Paper Presented</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Paper Presented</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers7"></div>
+                    <div id="NewCustomers8"></div>
                   </div>
                 </div>
               </div>
@@ -1109,13 +1109,13 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Poster Presented</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers8"></div>
+                    <div id="NewCustomers9"></div>
                   </div>
                 </div>
               </div>
@@ -1159,47 +1159,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
                               }
                               //
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND YEAR(end_date) = '$yearFilter'";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP()";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1219,47 +1219,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                                 //
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND YEAR(end_date) = '$yearFilter'";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation' AND end_date < CURRENT_TIMESTAMP()";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'For Evaluation'";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1279,47 +1279,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                                 //
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND YEAR(end_date) = '$yearFilter'";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed' AND end_date < CURRENT_TIMESTAMP()";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Approved with notice to proceed'";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1339,47 +1339,47 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
                               }
                               //
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND YEAR(end_date) = '$yearFilter'";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing' AND end_date < CURRENT_TIMESTAMP()";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Ongoing'";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -1399,45 +1399,45 @@ if (isset($_SESSION['user_id'])) {
                               if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 1 and 3";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 4 and 6";
                                 }
                                 //
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 7 and 9";
                                 }
                               } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                                 $yearFilter = $_GET['annual'];
                                 if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter'";
                                 } else {
-                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP()";
+                                  $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND MONTH(end_date) BETWEEN 10 and 12";
                                 }
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
                               }
                             } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                                 $yearFilter = $_GET['annual'];
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND YEAR(end_date) = '$yearFilter'";
                               } else {
-                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
+                                $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
                               }
                             } else {
-                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed' AND end_date < CURRENT_TIMESTAMP()";
+                              $sql = "SELECT COUNT(*) AS `total` FROM `research_topic` WHERE `college_id` = $college AND `status` = 'Completed'";
                             }
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
@@ -2824,43 +2824,43 @@ if (isset($_SESSION['user_id'])) {
             if (isset($_GET['quarter']) && $_GET['quarter'] == "first") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 1 and 3 GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 4 and 6 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college ND MONTH(end_date) BETWEEN 4 and 6 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college ND MONTH(end_date) BETWEEN 4 and 6 GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 7 and 9 GROUP BY `status` ORDER BY `status`";
               }
             } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
               $yearFilter = $_GET['annual'];
               if (isset($_GET['annual']) && $_GET['annual'] != "none") {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
               } else {
-                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+                $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND MONTH(end_date) BETWEEN 10 and 12 GROUP BY `status` ORDER BY `status`";
               }
             } else {
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
             }
           } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
               $yearFilter = $_GET['annual'];
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND YEAR(end_date) = '$yearFilter' AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND YEAR(end_date) = '$yearFilter' GROUP BY `status` ORDER BY `status`";
             } else {
-              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+              $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
             }
           } else {
-            $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college AND end_date < CURRENT_TIMESTAMP() GROUP BY `status` ORDER BY `status`";
+            $sql = "SELECT COUNT(*) AS `total`, `status` FROM `research_topic` WHERE `college_id` = $college GROUP BY `status` ORDER BY `status`";
           }
           $result = $conn->query($sql);
           $row = $result->fetch_assoc();

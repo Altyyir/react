@@ -391,7 +391,7 @@ if (isset($_GET['id'])) {
                           <th class="col-md-3" style="text-align: center;"><strong>Title</strong></th>
                           <th class="col-md-2" style="text-align: center;"><strong>Year Published</strong></th>
                           <th class="col-md-2" style="text-align: center;" width="100"><strong>Publisher</strong></th>
-                          <th class="col-md-2" style="text-align: center;" width="100"><strong>Url of Publication</strong></th>
+                          <th class="col-md-2" style="text-align: center;" width="100"><strong>URL of Publication</strong></th>
                         </tr>
                       </thead>
                       <tbody>

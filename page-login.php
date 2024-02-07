@@ -69,7 +69,7 @@ if (isset($_SESSION['user_id'])) {
                                 } elseif(isset($_GET['invalid']) && $_GET['invalid'] == 2) {
                             ?>
                                 <div class="alert alert-danger" style="display: flex; align-items: center; height: 41px; border-radius: 2px" role="alert">
-                                  <span class="material-symbols-outlined">warning</span><span style="padding-left: 10px;">Email Not Verified</span>
+                                  <span class="material-symbols-outlined">warning</span><span style="padding-left: 10px;">Email not yet verified</span>
                                 </div>
                             <?php
                                 }
