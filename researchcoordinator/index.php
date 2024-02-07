@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
   <!-- PAGE TITLE HERE -->
-  <title>Dean/Associate Dean</title>
+  <title>College Research Coordinator</title>
 
   <!-- FAVICONS ICON -->
   <link rel="shortcut icon" type="image/jpg" href="images/bsu.png">
@@ -502,7 +502,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Research Projects</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">No. of Research Projects</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -637,7 +637,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Conferences Attend</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Conferences Attended</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -707,7 +707,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Publications</span>
+                        <a href="tablescw.php" class="fs-18 font-w500 d-block">No. of Publications</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -776,7 +776,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D</a> 
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -842,7 +842,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Institutionally)</a> 
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -908,7 +908,7 @@ if (isset($_SESSION['user_id'])) {
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
-                        <span class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</span>
+                        <a href="proposal.php" class="fs-18 font-w500 d-block">Gross Expenditure on R&D (Externally)</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -974,7 +974,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Inventions</span>
+                        <a href="tableinventions.php" class="fs-18 font-w500 d-block">No. of Inventions</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
@@ -1043,13 +1043,13 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Paper Presented</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Paper Presented</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers7"></div>
+                    <div id="NewCustomers8"></div>
                   </div>
                 </div>
               </div>
@@ -1109,13 +1109,13 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
-                        <span class="fs-18 font-w500 d-block">No. of Poster Presented</span>
+                        <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Poster Presented</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
                                                                                     } ?></span>
                       </div>
                     </div>
-                    <div id="NewCustomers8"></div>
+                    <div id="NewCustomers9"></div>
                   </div>
                 </div>
               </div>
