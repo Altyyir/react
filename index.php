@@ -699,7 +699,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
-                                                      echo '₱' . number_format($row['total']);
+                                                      echo '₱' . number_format($row['total'], 2);
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
@@ -768,7 +768,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
-                                                      echo '₱' . number_format($row['total']);
+                                                      echo '₱' . number_format($row['total'], 2);
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>
@@ -837,7 +837,7 @@ if (isset($_SESSION['user_id'])) {
                         $row = $result->fetch_assoc();
                         ?>
                         <h2 class="fs-32 font-w700"><?php if ($row['total'] != null) {
-                                                      echo '₱' . number_format($row['total']);
+                                                      echo '₱' . number_format($row['total'], 2);
                                                     } else {
                                                       echo "₱0";
                                                     } ?></h2>

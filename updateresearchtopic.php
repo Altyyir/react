@@ -952,7 +952,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1013,7 +1013,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1076,7 +1076,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1137,7 +1137,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1198,7 +1198,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1262,7 +1262,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1323,7 +1323,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1384,7 +1384,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1447,7 +1447,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1508,7 +1508,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1569,7 +1569,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -1633,7 +1633,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1694,7 +1694,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1755,7 +1755,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1821,7 +1821,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1882,7 +1882,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -1943,7 +1943,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2004,7 +2004,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2065,7 +2065,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2128,7 +2128,7 @@ Content body start
                                                               <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                             </td>
                                                             <td class="col-md-2">
-                                                              <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                              <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                             </td>
                                                             <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                             <td style="padding: 0px">
@@ -2192,7 +2192,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2253,7 +2253,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2316,7 +2316,7 @@ Content body start
                                                                   <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                 </td>
                                                                 <td class="col-md-2">
-                                                                  <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                  <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                 </td>
                                                                 <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                 <td style="padding: 0px">
@@ -2397,7 +2397,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2458,7 +2458,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2519,7 +2519,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2580,7 +2580,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2641,7 +2641,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2702,7 +2702,7 @@ Content body start
                                                                     <input type="number" class="form-control" name="qual[]" id="quantity<?=$expenses?>" onkeyup="quantityfunc(<?=$expenses?>)" value="<?=$expensesRow['quantity']?>">
                                                                   </td>
                                                                   <td class="col-md-2">
-                                                                    <input type="number" class="form-control" name="unitCost[]" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
+                                                                    <input type="number" class="form-control" name="unitCost[]" step="any" id="cost<?=$expenses?>" onkeyup="unitfunc(<?=$expenses?>)" value="<?=$expensesRow['unit_cost']?>">
                                                                   </td>
                                                                   <td class="netPrice" id="netPrice<?=$expenses?>">₱ <?=$expensesRow['quantity']*$expensesRow['unit_cost']?></td>
                                                                   <td style="padding: 0px">
@@ -2980,7 +2980,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next1').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="local"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next1').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="local"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -2992,7 +2992,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next2').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="foreign"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next2').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="foreign"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3004,7 +3004,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next3').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="training expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next3').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="training expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3016,7 +3016,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next4').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="supplies and materials"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next4').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="supplies and materials"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3028,7 +3028,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next5').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="postage and deliveries"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next5').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="postage and deliveries"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3040,7 +3040,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next6').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="telephone expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next6').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="telephone expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3052,7 +3052,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next7').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="internet expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next7').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="internet expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3064,7 +3064,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next8').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other communication expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next8').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other communication expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3076,7 +3076,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next9').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="rent expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next9').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="rent expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3088,7 +3088,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next10').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="transportation and delivery expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next10').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="transportation and delivery expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3099,7 +3099,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next11').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="subscription expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next11').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="subscription expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3111,7 +3111,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next12').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="consultancy services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next12').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="consultancy services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3123,7 +3123,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next13').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="general services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next13').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="general services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3135,7 +3135,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next14').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other professional services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next14').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other professional services"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3147,7 +3147,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next15').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="it equipment and software"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next15').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="it equipment and software"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3159,7 +3159,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next16').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="laboratory equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next16').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="laboratory equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3171,7 +3171,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next17').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="technical and scientific equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next17').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="technical and scientific equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3183,7 +3183,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next18').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="machineries and equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next18').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="machineries and equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3195,7 +3195,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next19').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other repairs and maintenance of facilities"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next19').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other repairs and maintenance of facilities"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3207,7 +3207,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next20').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="taxes, duties, patent, and licenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next20').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="taxes, duties, patent, and licenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3219,7 +3219,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next21').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="advertising expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next21').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="advertising expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3231,7 +3231,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next22').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="printing and binding expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next22').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="printing and binding expenses"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3243,7 +3243,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next23').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other financial charges"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next23').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other financial charges"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3255,7 +3255,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next24').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="it equipment and software (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next24').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="it equipment and software (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3267,7 +3267,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next25').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="machineries"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next25').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="machineries"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3279,7 +3279,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next26').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="communication equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next26').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="communication equipment"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3291,7 +3291,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next27').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="laboratory equipment (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next27').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="laboratory equipment (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3303,7 +3303,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next28').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="technical and scientific equipment (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next28').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="technical and scientific equipment (coe)"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
@@ -3315,7 +3315,7 @@ Scripts
         // var length = $('').length;
         // // alert(length);
         // var i = parseInt(length)+parseInt(1);
-        var newrow = $('#next29').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other coe"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
+        var newrow = $('#next29').append('<div class="table-responsive"><table class="table table-responsive"><tbody><tr><td style="display: none;"><input class="form-control form-control-lg" name="category[]" value="other coe"/></td><td class="col-md-5"><input type="text" class="form-control" placeholder="Item Description" name="itemDescription[]" id="item'+i+'"></td><td class="col-md-2"><input type="number" class="form-control" name="qual[]" id="quantity'+i+'" onkeyup="quantityfunc('+i+')"></td><td class="col-md-2"><input type="number" class="form-control" name="unitCost[]" step="any" id="cost'+i+'" onkeyup="unitfunc('+i+')"></td><td class="netPrice" id="netPrice'+i+'">0</td><td style="padding: 0px"><th class="col-md-1" style="padding-top: 20px"><button type="button" value="Remove" id="remove" class="btn btn-danger shadow btn-xs sharp" onclick="BtnDel('+i+')" class="col-md-2"><i class="fa fa-trash"></i></button></th></td></tr></tbody></table></div></div>');
         i++;
       });
       $('body').on('click','.btn-danger',function(){
