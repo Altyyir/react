@@ -588,47 +588,74 @@ if (isset($_SESSION['user_id'])) {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 1 and 3 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 1 and 3 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 1 and 3";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 1 and 3";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 4 and 6 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 4 and 6 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 4 and 6";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 4 and 6";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 7 and 9 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 7 and 9 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 7 and 9";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 7 and 9";
                             }
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 10 and 12 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 10 and 12 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE MONTH(to_conference) BETWEEN 10 and 12";
+
+                              $sql = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE MONTH(to_seminar) BETWEEN 10 and 12";
                             }
                           } else {
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences`";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training`";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences` WHERE YEAR(to_conference) = '$yearFilter'";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` WHERE YEAR(to_seminar) = '$yearFilter'";
                           } else {
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences`";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training`";
                           }
                         } else {
                           $sql = "SELECT COUNT(*) AS `total` FROM `conferences`";
+
+                          $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training`";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
+
+                        $result2 = $conn->query($sql2);
+                        $row2 = $result2->fetch_assoc();
                         ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
+                        <h2 class="fs-32 font-w700"><?= $row['total'] + $row2['total'] ?></h2>
                         <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Conferences Attended</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
@@ -2239,56 +2266,81 @@ if (isset($_SESSION['user_id'])) {
                         $yearFilter = $_GET['annual'];
                         if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 1 and 3 AND YEAR(con.to_conference) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 1 and 3 AND YEAR(con.to_seminar) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         } else {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 1 and 3 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 1 and 3 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         }
                       } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                         $yearFilter = $_GET['annual'];
                         if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 4 and 6 AND YEAR(con.to_conference) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 4 and 6 AND YEAR(con.to_seminar) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         } else {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 4 and 6 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 4 and 6 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         }
                       } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                         $yearFilter = $_GET['annual'];
                         if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 7 and 9 AND YEAR(con.to_conference) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 7 and 9 AND YEAR(con.to_seminar) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         } else {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 7 and 9 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 7 and 9 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         }
                       } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                         $yearFilter = $_GET['annual'];
                         if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 10 and 12 AND YEAR(con.to_conference) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 10 and 12 AND YEAR(con.to_seminar) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         } else {
                           $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_conference) BETWEEN 10 and 12 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                          $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE MONTH(con.to_seminar) BETWEEN 10 and 12 GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                         }
                       } else {
                         $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                        $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                       }
                     } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                       if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                         $yearFilter = $_GET['annual'];
                         $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE YEAR(con.to_conference) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                        $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id WHERE YEAR(con.to_seminar) = '$yearFilter' GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                       } else {
                         $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                        $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                       }
                     } else {
                       $sql = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `conferences` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
+
+                      $sql2 = "SELECT col.abbreviation_college, COUNT(*) AS total FROM `seminar_training` AS con INNER JOIN faculty_user AS fu ON con.added_by = fu.id INNER JOIN college AS col ON fu.college_id = col.id GROUP BY col.abbreviation_college ORDER BY CASE WHEN col.abbreviation_college = 'CICS' THEN 1 WHEN col.abbreviation_college = 'CABEIHM' THEN 2 WHEN col.abbreviation_college = 'CAS' THEN 3 WHEN col.abbreviation_college = 'CET' THEN 4 WHEN col.abbreviation_college = 'CONAHS' THEN 5 END";
                     }
+                    $data = array(0, 0, 0, 0, 0, 0, 0);
                     $result = $conn->query($sql);
-                    $row = $result->fetch_assoc();
-                    $data = [];
-                    foreach ($labels as $value) {
-                      if (isset($row)) {
-                        if ($value == $row['abbreviation_college']) {
-                          $data[] = $row['total'];
-                          $row = $result->fetch_assoc();
-                        } else {
-                          $data[] = 0;
-                        }
-                      } else {
-                        $data[] = 0;
+                    while ($row = $result->fetch_assoc()) {
+                      if (in_array($row['abbreviation_college'], $labels)) {
+                        $index = array_search($row['abbreviation_college'], $labels);
+                        $data[$index] += $row['total'];
+                      }
+                    }
+
+                    $result2 = $conn->query($sql2);
+                    while ($row2 = $result2->fetch_assoc()) {
+                      if (in_array($row2['abbreviation_college'], $labels)) {
+                        $index = array_search($row2['abbreviation_college'], $labels);
+                        $data[$index] += $row2['total'];
                       }
                     }
                     echo '[' . implode(', ', $data) . '],';

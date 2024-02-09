@@ -593,50 +593,77 @@ if (isset($_SESSION['user_id'])) {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 1 and 3 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 1 and 3 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 1 and 3";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 1 and 3";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "second") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 4 and 6 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 4 and 6 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 4 and 6";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 4 and 6";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "third") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 7 and 9 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 7 and 9 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 7 and 9";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 7 and 9";
                             }
                             //
                           } elseif (isset($_GET['quarter']) && $_GET['quarter'] == "fourth") {
                             $yearFilter = $_GET['annual'];
                             if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 10 and 12 AND YEAR(to_conference) = '$yearFilter'";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 10 and 12 AND YEAR(to_seminar) = '$yearFilter'";
                             } else {
                               $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_conference) BETWEEN 10 and 12";
+
+                              $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND MONTH(to_seminar) BETWEEN 10 and 12";
                             }
                           } else {
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
                           }
                         } elseif (isset($_GET['filterType']) && $_GET['filterType'] == "annual") {
                           if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                             $yearFilter = $_GET['annual'];
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(to_conference) = '$yearFilter'";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college AND YEAR(to_seminar) = '$yearFilter'";
                           } else {
                             $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+
+                            $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
                           }
                         } else {
                           $sql = "SELECT COUNT(*) AS `total` FROM `conferences` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
+
+                          $sql2 = "SELECT COUNT(*) AS `total` FROM `seminar_training` AS con INNER JOIN faculty_user AS fac ON con.added_by = fac.id WHERE fac.college_id = $college";
                         }
                         $result = $conn->query($sql);
                         $row = $result->fetch_assoc();
+
+                        $result2 = $conn->query($sql2);
+                        $row2 = $result2->fetch_assoc();
                         ?>
-                        <h2 class="fs-32 font-w700"><?= $row['total'] ?></h2>
+                        <h2 class="fs-32 font-w700"><?= $row['total'] + $row2['total'] ?></h2>
                         <a href="tableconferences.php" class="fs-18 font-w500 d-block">No. of Conferences Attend</a>
                         <span class="fs-15 font-w500 d-block"><?= $_GET['annual'] ?><?php if ($_GET['filterType'] == "quarter") {
                                                                                       echo ucwords(" - " . $_GET['quarter'] . " quarter");
@@ -2023,11 +2050,9 @@ if (isset($_SESSION['user_id'])) {
                   }
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['quarter'], $labels)) {
-                        $index = array_search($row['quarter'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['quarter'], $labels)) {
+                      $index = array_search($row['quarter'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo '[' . implode(', ', $data) . '],';
@@ -2037,11 +2062,9 @@ if (isset($_SESSION['user_id'])) {
                   $sql = "SELECT YEAR(end_date) AS year, COUNT(*) AS total FROM research_topic WHERE `college_id` = $college GROUP BY YEAR(end_date)";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['year'], $labels)) {
-                        $index = array_search($row['year'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['year'], $labels)) {
+                      $index = array_search($row['year'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo '[' . implode(', ', $data) . '],';
@@ -2116,11 +2139,9 @@ if (isset($_SESSION['user_id'])) {
               }
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()) {
-                foreach($labels as $value) {
-                  if(in_array($row['quarter'], $labels)) {
-                    $index = array_search($row['quarter'], $labels);
-                    $data[$index] = $row['total'];
-                  }
+                if(in_array($row['quarter'], $labels)) {
+                  $index = array_search($row['quarter'], $labels);
+                  $data[$index] = $row['total'];
                 }
               }
               echo implode(", ", $data);
@@ -2130,11 +2151,9 @@ if (isset($_SESSION['user_id'])) {
               $sql = "SELECT YEAR(rt.end_date) AS year, count(DISTINCT r.name) AS total FROM `research_topic` AS rt INNER JOIN research_representatives AS rr ON rt.id = rr.research_topic_id INNER JOIN representative AS r ON rr.id = r.research_representatives_id WHERE `college_id` = $college GROUP BY YEAR(rt.end_date)";
               $result = $conn->query($sql);
               while($row = $result->fetch_assoc()) {
-                foreach($labels as $value) {
-                  if(in_array($row['year'], $labels)) {
-                    $index = array_search($row['year'], $labels);
-                    $data[$index] = $row['total'];
-                  }
+                if(in_array($row['year'], $labels)) {
+                  $index = array_search($row['year'], $labels);
+                  $data[$index] = $row['total'];
                 }
               }
               echo implode(", ", $data);
@@ -2204,34 +2223,51 @@ if (isset($_SESSION['user_id'])) {
                 <?php
                 if (isset($_GET['filterType']) && $_GET['filterType'] == "quarter") {
                   $labels = array('1', '2', '3', '4');
-                  $data = array("0", "0", "0", "0");
+                  $data = array(0, 0, 0, 0);
                   $yearFilter = $_GET['annual'];
                   if (isset($_GET['annual']) && $_GET['annual'] != "none") {
                     $sql = "SELECT QUARTER(to_conference) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(to_conference) = '$yearFilter' GROUP BY QUARTER(to_conference)";
+
+                    $sql2 = "SELECT QUARTER(to_seminar) AS quarter, COUNT(*) AS total FROM `seminar_training` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college AND YEAR(to_seminar) = '$yearFilter' GROUP BY QUARTER(to_seminar)";
                   } else {
                     $sql = "SELECT SELECT QUARTER(to_conference) AS quarter, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY QUARTER(to_conference)";
+
+                    $sql2 = "SELECT SELECT QUARTER(to_seminar) AS quarter, COUNT(*) AS total FROM `seminar_training` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY QUARTER(to_seminar)";
                   }
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['quarter'], $labels)) {
-                        $index = array_search($row['quarter'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['quarter'], $labels)) {
+                      $index = array_search($row['quarter'], $labels);
+                      $data[$index] += $row['total'];
+                    }
+                  }
+
+                  $result2 = $conn->query($sql2);
+                  while($row2 = $result2->fetch_assoc()) {
+                    if(in_array($row2['quarter'], $labels)) {
+                      $index = array_search($row2['quarter'], $labels);
+                      $data[$index] += $row2['total'];
                     }
                   }
                   echo implode(", ", $data);
                 } else {
                   $labels = $yearArray;
-                  $data = array("0", "0", "0", "0", "0");
+                  $data = array(0, 0, 0, 0, 0);
                   $sql = "SELECT YEAR(to_conference) AS year, COUNT(*) AS total FROM `conferences` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(to_conference)";
+                  $sql2 = "SELECT YEAR(to_seminar) AS year, COUNT(*) AS total FROM `seminar_training` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(to_seminar)";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['year'], $labels)) {
-                        $index = array_search($row['year'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['year'], $labels)) {
+                      $index = array_search($row['year'], $labels);
+                      $data[$index] += $row['total'];
+                    }
+                  }
+
+                  $result2 = $conn->query($sql2);
+                  while($row2 = $result2->fetch_assoc()) {
+                    if(in_array($row2['year'], $labels)) {
+                      $index = array_search($row2['year'], $labels);
+                      $data[$index] += $row2['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2315,11 +2351,9 @@ if (isset($_SESSION['user_id'])) {
                   }
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['quarter'], $labels)) {
-                        $index = array_search($row['quarter'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['quarter'], $labels)) {
+                      $index = array_search($row['quarter'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2329,11 +2363,9 @@ if (isset($_SESSION['user_id'])) {
                   $sql = "SELECT YEAR(year_published) AS year, COUNT(*) AS total FROM `scw_` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(year_published)";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['year'], $labels)) {
-                        $index = array_search($row['year'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['year'], $labels)) {
+                      $index = array_search($row['year'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2415,11 +2447,9 @@ if (isset($_SESSION['user_id'])) {
                   }
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['quarter'], $labels)) {
-                        $index = array_search($row['quarter'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['quarter'], $labels)) {
+                      $index = array_search($row['quarter'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2429,11 +2459,9 @@ if (isset($_SESSION['user_id'])) {
                   $sql = "SELECT YEAR(end_date) AS year, COUNT(*) AS total FROM research_topic WHERE status = 'Completed' AND college_id = $college GROUP BY YEAR(end_date)";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['year'], $labels)) {
-                        $index = array_search($row['year'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['year'], $labels)) {
+                      $index = array_search($row['year'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2483,11 +2511,9 @@ if (isset($_SESSION['user_id'])) {
       }
       $result = $conn->query($sql);
       while($row = $result->fetch_assoc()) {
-        foreach($labels as $value) {
-          if(in_array($row['quarter'], $labels)) {
-            $index = array_search($row['quarter'], $labels);
-            $data[$index] = $row['total'];
-          }
+        if(in_array($row['quarter'], $labels)) {
+          $index = array_search($row['quarter'], $labels);
+          $data[$index] = $row['total'];
         }
       }
       $externalyFunded = '[' . implode(', ', $data) . '],';
@@ -2495,11 +2521,9 @@ if (isset($_SESSION['user_id'])) {
       $data = array("0", "0", "0", "0");
       $result = $conn->query($sql2);
       while($row = $result->fetch_assoc()) {
-        foreach($labels as $value) {
-          if(in_array($row['quarter'], $labels)) {
-            $index = array_search($row['quarter'], $labels);
-            $data[$index] = $row['total'];
-          }
+        if(in_array($row['quarter'], $labels)) {
+          $index = array_search($row['quarter'], $labels);
+          $data[$index] = $row['total'];
         }
       }
       $institutionalyFunded = '[' . implode(', ', $data) . '],';
@@ -2510,11 +2534,9 @@ if (isset($_SESSION['user_id'])) {
       $sql2 = "SELECT YEAR(`rt`.`end_date`) AS `year`, SUM(`e`.`quantity` * `e`.`unit_cost`) AS `total` FROM `research_topic` AS `rt` INNER JOIN `expenses` AS `e` ON `rt`.`id` = `e`.`research_topic_id` WHERE `rt`.`partnership` = 'Institutionaly Funded' AND `college_id` = $college AND NOT `status` LIKE 'For Evaluation' GROUP BY `year`";
       $result = $conn->query($sql);
       while($row = $result->fetch_assoc()) {
-        foreach($labels as $value) {
-          if(in_array($row['year'], $labels)) {
-            $index = array_search($row['year'], $labels);
-            $data[$index] = $row['total'];
-          }
+        if(in_array($row['year'], $labels)) {
+          $index = array_search($row['year'], $labels);
+          $data[$index] = $row['total'];
         }
       }
       $externalyFunded = '[' . implode(', ', $data) . '],';
@@ -2522,11 +2544,9 @@ if (isset($_SESSION['user_id'])) {
       $data = array("0", "0", "0", "0", "0");
       $result = $conn->query($sql2);
       while($row = $result->fetch_assoc()) {
-        foreach($labels as $value) {
-          if(in_array($row['year'], $labels)) {
-            $index = array_search($row['year'], $labels);
-            $data[$index] = $row['total'];
-          }
+        if(in_array($row['year'], $labels)) {
+          $index = array_search($row['year'], $labels);
+          $data[$index] = $row['total'];
         }
       }
       $institutionalyFunded = '[' . implode(', ', $data) . '],';
@@ -2623,11 +2643,9 @@ if (isset($_SESSION['user_id'])) {
                   }
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['quarter'], $labels)) {
-                        $index = array_search($row['quarter'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['quarter'], $labels)) {
+                      $index = array_search($row['quarter'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
@@ -2637,11 +2655,9 @@ if (isset($_SESSION['user_id'])) {
                   $sql = "SELECT YEAR(date_inventions) AS year, COUNT(*) AS total FROM `inventions` AS c INNER JOIN faculty_user AS fu ON c.added_by = fu.id WHERE fu.college_id = $college GROUP BY YEAR(date_inventions)";
                   $result = $conn->query($sql);
                   while($row = $result->fetch_assoc()) {
-                    foreach($labels as $value) {
-                      if(in_array($row['year'], $labels)) {
-                        $index = array_search($row['year'], $labels);
-                        $data[$index] = $row['total'];
-                      }
+                    if(in_array($row['year'], $labels)) {
+                      $index = array_search($row['year'], $labels);
+                      $data[$index] = $row['total'];
                     }
                   }
                   echo implode(", ", $data);
