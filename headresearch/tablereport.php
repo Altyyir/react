@@ -521,20 +521,22 @@ if (isset($_GET['id'])) {
                         $count++;
                       }
                     } elseif (isset($_GET['college']) && isset($_GET['filtertype']) && $_GET['filtertype'] == "annual") {
-                      $sql = "SELECT DISTINCT(YEAR(dateAdded)) AS year FROM research_topic ORDER BY year DESC";
-                      $yearResult = $conn->query($sql);
-                      while ($yearRow = $yearResult->fetch_assoc()) {
+                      $currentYear = date("Y");
+                      $i = 0;
+                      while ($i < 5) {
                       ?>
                         <tr>
                           <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>
                           <td class="col-md-4">All Quarter</td>
-                          <td class="col-md-4" style="text-align: center;"><?= $yearRow['year'] ?></td>
+                          <td class="col-md-4" style="text-align: center;"><?= $currentYear ?></td>
                           <td class="col-md-4" style="padding-left: 285px">
-                            <a href="quarterlypdf.php?id=<?php echo $row['id'] ?>&year=<?= $yearRow['year'] ?>&college=<?= $_GET['college'] ?>" target="_blank" class="btn btn-dark shadow btn-xs sharp me-1" name="approve" value="approve"><i class="fas fa-cloud-download-alt" title='Report'></i></a>
+                            <a href="quarterlypdf.php?id=<?php echo $row['id'] ?>&year=<?= $currentYear ?>&college=<?= $_GET['college'] ?>" target="_blank" class="btn btn-dark shadow btn-xs sharp me-1" name="approve" value="approve"><i class="fas fa-cloud-download-alt" title='Report'></i></a>
                           </td>
                           </td>
                         </tr>
                       <?php
+                        $currentYear--;
+                        $i++;
                       }
                       ?>
 
