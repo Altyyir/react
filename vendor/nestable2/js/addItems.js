@@ -410,7 +410,7 @@ $('body').on('click','.btn-danger',function(){
 
 function formatWithPesoSign(value) {
     // Add a comma as a thousands separator and the peso sign
-    return '₱ ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return '₱ ' + value;
 }
 
 function quantityfunc(q) {
@@ -419,7 +419,7 @@ function quantityfunc(q) {
     if (quantityValue == null && unitValue == null) {
         return;
     }
-    var netPriceValue = quantityValue * unitValue;
+    var netPriceValue = (quantityValue * unitValue).toFixed(2);
     document.getElementById("netPrice" + q).innerHTML = formatWithPesoSign(netPriceValue);
     var k = 0;
     total = 0;
@@ -441,7 +441,7 @@ function unitfunc(q) {
     if (quantityValue == null && unitValue == null) {
         return;
     }
-    var netPriceValue = quantityValue * unitValue;
+    var netPriceValue = (quantityValue * unitValue).toFixed(2);
     document.getElementById("netPrice" + q).innerHTML = formatWithPesoSign(netPriceValue);
     var k = 0;
     total = 0;
@@ -450,7 +450,7 @@ function unitfunc(q) {
             k++;
             continue;
         }
-        total += parseInt(document.getElementById("netPrice" + k).innerHTML.replace('₱', '').replace(/,/g, ''));
+        total += parseFloat(document.getElementById("netPrice" + k).innerHTML.replace('₱', '').replace(/,/g, ''));
         console.log(total);
         k++;
     }
@@ -465,7 +465,7 @@ function BtnDel(q) {
             k++;
             continue;
         }
-        total += parseInt(document.getElementById("netPrice" + k).innerHTML.replace('₱', '').replace(/,/g, ''));
+        total += parseFloat(document.getElementById("netPrice" + k).innerHTML.replace('₱', '').replace(/,/g, ''));
         console.log(total);
         k++;
     }

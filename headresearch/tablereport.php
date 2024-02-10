@@ -464,12 +464,14 @@ if (isset($_GET['id'])) {
                           <select id="annualFilterInput" class="form-control" name="year">
                             <option value="none" selected="">Choose Year</option>
                             <?php
-                            $sql = "SELECT DISTINCT(YEAR(dateAdded)) AS year FROM research_topic ORDER BY year DESC";
-                            $result = $conn->query($sql);
-                            while ($yearRow = $result->fetch_assoc()) {
+                            $currentYear = date("Y");
+                            $i = 0;
+                            while ($i < 10) {
                             ?>
-                              <option value="<?= $yearRow['year'] ?>"><?= $yearRow['year'] ?></option>
+                              <option value="<?= $currentYear ?>"><?= $currentYear ?></option>
                             <?php
+                              $currentYear--;
+                              $i++;
                             }
                             ?>
                           </select>
@@ -523,7 +525,7 @@ if (isset($_GET['id'])) {
                     } elseif (isset($_GET['college']) && isset($_GET['filtertype']) && $_GET['filtertype'] == "annual") {
                       $currentYear = date("Y");
                       $i = 0;
-                      while ($i < 5) {
+                      while ($i < 10) {
                       ?>
                         <tr>
                           <td style="display: none;" class='center-align px-3'><strong></strong></strong></td>

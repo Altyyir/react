@@ -1861,20 +1861,6 @@ function ValidateEmptyInput() {
       }
     })
   </script>
-  <script>
-    // Get the current date in the format YYYY-MM-DD
-    var currentDate = new Date().toISOString().split('T')[0];
-
-    // Set the min attribute of the date input to the current date
-    document.getElementById('startdate').min = currentDate;
-</script>
- <script>
-    // Get the current date in the format YYYY-MM-DD
-    var currentDate = new Date().toISOString().split('T')[0];
-
-    // Set the min attribute of the date input to the current date
-    document.getElementById('enddate').min = currentDate;
-</script>
 
   </body>
 </html>
