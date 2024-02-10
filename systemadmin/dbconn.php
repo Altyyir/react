@@ -3,10 +3,10 @@ $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http
 
 $servername = "localhost";
 $username = "root";
-if($url == "http://localhost") {
-    $password = "";
+if ($url == "http://localhost") {
+  $password = "";
 } else {
-    $password = "Capstone2023React";
+  $password = "Capstone2023React";
 }
 $dbname = "react";
 
@@ -19,4 +19,3 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 //  echo "Connected successfully";
-?>

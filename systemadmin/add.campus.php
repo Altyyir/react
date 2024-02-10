@@ -2,7 +2,7 @@
 
 include 'dbconn.php';
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$campus_name = $_POST['campus_name'];
 	$address = $_POST['address'];
 
@@ -10,13 +10,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 	$stmt = mysqli_prepare($conn, $sql);
 
 	if ($stmt) {
-	    mysqli_stmt_bind_param($stmt, "ss", $campus_name, $address);
-	    if (mysqli_stmt_execute($stmt)) {
-	        header("location: campus.php");	
-	    } else {
-	        // Insert failed
-	    }
-	    mysqli_stmt_close($stmt);
+		mysqli_stmt_bind_param($stmt, "ss", $campus_name, $address);
+		if (mysqli_stmt_execute($stmt)) {
+			header("location: campus.php");
+		} else {
+			// Insert failed
+		}
+		mysqli_stmt_close($stmt);
 	}
 
 	header("location: ./campus.php");
