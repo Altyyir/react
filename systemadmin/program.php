@@ -102,7 +102,7 @@ if (isset($_SESSION['user_id'])) {
 					<div class="collapse navbar-collapse justify-content-between">
 						<div class="header-left">
 							<div class="dashboard_bar">
-								User Management
+								University Setup
 							</div>
 						</div>
 						<ul class="navbar-nav header-right">
